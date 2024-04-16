@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:48:13.966Z",
+    "end": "2024-04-15T21:48:26.839Z",
+    "duration": 12873,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "116a7180-9865-4a81-b068-3ef81ce4d877",
+      "title": "",
+      "fullFile": "cypress\\e2e\\_CadetFunding\\Cadres-G8s-PMS-XO\\G8-verify-finance-permissions.ts",
+      "file": "cypress\\e2e\\_CadetFunding\\Cadres-G8s-PMS-XO\\G8-verify-finance-permissions.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "43c2e79b-22fb-4d37-90b9-cbb862d12774",
+          "title": "Verify G8 accounting permissions",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logs in as G8 Approver",
+              "fullTitle": "Verify G8 accounting permissions Logs in as G8 Approver",
+              "timedOut": null,
+              "duration": 12784,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/account/impersonate');\ncy.login('Jordan', 'G8 Approver');\ncy.contains('button', 'Jordan G8 Approver').click();\ncy.contains('button', 'My Profile').click();\n// cy.contains('mat-checkbox',' Account Edit ').find('[aria-checked=\"true\"]')\ncy.contains('Expand All').click();\ncy.get('#cdk-accordion-child-6 > .mat-expansion-panel-body > :nth-child(1) > mat-checkbox').find('.mdc-checkbox--selected');\ncy.get('#cdk-accordion-child-6 > .mat-expansion-panel-body > :nth-child(2) > mat-checkbox').find('.mdc-checkbox--selected');\ncy.get('#cdk-accordion-child-6 > .mat-expansion-panel-body > :nth-child(4) > mat-checkbox').find('.mdc-checkbox--selected');\ncy.get('#cdk-accordion-child-6 > .mat-expansion-panel-body > :nth-child(5) > mat-checkbox').find('.mdc-checkbox--selected');\ncy.get('#cdk-accordion-child-6 > .mat-expansion-panel-body > :nth-child(6) > mat-checkbox').find('.mdc-checkbox--selected');\ncy.VisitMenuPage('Accounting', 'Manage Accounts');\ncy.contains('button', 'Add Account').click();\ncy.contains('input-dropdown', 'Account Type').click();\ncy.contains(' GPC ').click();\ncy.getInputControl('accountName').type('Cypress G8 Account');\ncy.getMatSelectControl('fundingRequestType').click()\n    .wait(100)\n    .get('mat-option')\n    .eq(1).click();\ncy.getInputControl('documentNumber').type('777');\ncy.getInputControl('sfis').type('sfis cypress');\ncy.getInputControl('accountOwner').click()\n    .wait(100)\n    .get('mat-option')\n    .eq(1).click();\ncy.getInputControl('nameOnCard').type('card name');\ncy.getInputControl('cardNumber').type('123456789');\ncy.contains('button', 'Add').click();\ncy.wait(500);\ncy.get('datatable-body-cell').contains('Cypress G8 Account').click();\ncy.wait(500);\ncy.contains('button', 'Delete').click();\ncy.wait(100);\ncy.contains('button', 'Yes').click();",
+              "err": {},
+              "uuid": "18d978b7-813f-45d3-b01e-008f7c821f9b",
+              "parentUUID": "43c2e79b-22fb-4d37-90b9-cbb862d12774",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "18d978b7-813f-45d3-b01e-008f7c821f9b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12784,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

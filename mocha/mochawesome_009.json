@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:06:51.142Z",
+    "end": "2024-04-15T21:06:57.319Z",
+    "duration": 6177,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e36ee247-98aa-431a-8ebd-025eb1224d24",
+      "title": "",
+      "fullFile": "cypress\\e2e\\user-account\\profile.ts",
+      "file": "cypress\\e2e\\user-account\\profile.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ade0ac90-96b7-4117-85fa-65fe9b316112",
+          "title": "User Can View Profile",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Open profile page from user profile",
+              "fullTitle": "User Can View Profile Open profile page from user profile",
+              "timedOut": null,
+              "duration": 6096,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.defaultLogin();\ncy.get('#userprofile-menu').click();\ncy.get('#profile-menu').click();",
+              "err": {},
+              "uuid": "3c6bf11e-cefd-4461-bfa6-ac14ab2f859c",
+              "parentUUID": "ade0ac90-96b7-4117-85fa-65fe9b316112",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3c6bf11e-cefd-4461-bfa6-ac14ab2f859c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6096,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

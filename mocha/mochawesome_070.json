@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:53:10.449Z",
+    "end": "2024-04-15T21:53:18.306Z",
+    "duration": 7857,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e5012b31-90bc-4de2-8ae5-79572eaa14d8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\_CIVFunding\\CivilianFunding\\ACCMA\\ACCMA-Disapproval.ts",
+      "file": "cypress\\e2e\\_CIVFunding\\CivilianFunding\\ACCMA\\ACCMA-Disapproval.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9e7cc0c7-d2d7-4e42-88b5-c1f70294da0b",
+          "title": "ACCMA disapproves individual SF182",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login as ACCMA RM",
+              "fullTitle": "ACCMA disapproves individual SF182 Login as ACCMA RM",
+              "timedOut": null,
+              "duration": 4569,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('Cypress', 'ACCMA RM');",
+              "err": {},
+              "uuid": "8c26dc24-86c3-4da4-b75d-229ff84e7a4b",
+              "parentUUID": "9e7cc0c7-d2d7-4e42-88b5-c1f70294da0b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Select Civlian Training Funding Request Tile From Dashboard, selects Cypress Civs SF182",
+              "fullTitle": "ACCMA disapproves individual SF182 Select Civlian Training Funding Request Tile From Dashboard, selects Cypress Civs SF182",
+              "timedOut": null,
+              "duration": 695,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.pending-work > :nth-child(1)').contains('Civilian Training Funding Requests').click();\ncy.contains('datatable-body-row', 'Civ, Cypress').within(() => {\n    // Assert that the row contains a cell with the name 'Civ, Cypress'\n    cy.get('datatable-body-cell').contains('Civ, Cypress').should('exist');\n    cy.get('datatable-body-cell').find('button').should('exist');\n    cy.get('datatable-body-cell').find('button').click();\n});",
+              "err": {},
+              "uuid": "314e781e-1745-49ed-a825-034ad9e8a4ce",
+              "parentUUID": "9e7cc0c7-d2d7-4e42-88b5-c1f70294da0b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Training Officer disapproves individual SF182",
+              "fullTitle": "ACCMA disapproves individual SF182 Training Officer disapproves individual SF182",
+              "timedOut": null,
+              "duration": 2385,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('button').contains(' Disapprove ').click();\ncy.get('[formcontrolname=disapprovalReason]').click();\ncy.get('mat-option').contains(' SF 182 not submitted IAW ACCMA established time line (at least 30 days prior to class start date) ');\ncy.get('mat-option').contains(' Insufficient Funding in Career Field ');\ncy.get('mat-option').contains(' Duplicate Course Request ');\ncy.get('mat-option').contains(' Other (Remarks required) ').click();\ncy.get('[formcontrolname=remarks]').click().type('Disapproved by automated test');\ncy.get('button').contains('Change Status').click();\ncy.contains(' Supervisor Concurs / Training Officer Approved / ACCMA RM Disapproved ').should('exist');",
+              "err": {},
+              "uuid": "5aa1a364-ab67-40de-b5bc-66075146874e",
+              "parentUUID": "9e7cc0c7-d2d7-4e42-88b5-c1f70294da0b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8c26dc24-86c3-4da4-b75d-229ff84e7a4b",
+            "314e781e-1745-49ed-a825-034ad9e8a4ce",
+            "5aa1a364-ab67-40de-b5bc-66075146874e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7649,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

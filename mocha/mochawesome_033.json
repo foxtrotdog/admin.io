@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:35:57.134Z",
+    "end": "2024-04-15T21:36:29.733Z",
+    "duration": 32599,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1c534a04-4623-447a-8253-3f9cf4a403ca",
+      "title": "",
+      "fullFile": "cypress\\e2e\\accounting\\manage-accounts\\create-other-account.ts",
+      "file": "cypress\\e2e\\accounting\\manage-accounts\\create-other-account.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c42cbd74-fbdb-49c4-b08d-86e172d6cec6",
+          "title": "Create Other account tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "I can navigate to page",
+              "fullTitle": "Create Other account tests I can navigate to page",
+              "timedOut": null,
+              "duration": 6068,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.defaultLogin();\ncy.get('fuse-sidebar').within(() => {\n    cy.contains('Accounting').click();\n    cy.wait(1000);\n    cy.contains('Manage Accounts').click();\n});",
+              "err": {},
+              "uuid": "9f808147-4968-4a33-b9a4-7f36e92d94fe",
+              "parentUUID": "c42cbd74-fbdb-49c4-b08d-86e172d6cec6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create account",
+              "fullTitle": "Create Other account tests Create account",
+              "timedOut": null,
+              "duration": 5552,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(5000);\ncy.contains('button', 'Add Account').click();\ncy.url().should('include', 'accounting/accounts/add-account');\ncy.get('mat-select').click()\n    .wait(100)\n    .get('mat-option')\n    .contains('Other').click();",
+              "err": {},
+              "uuid": "22e0f33f-32b4-4cf5-b75e-e3e3f3d8ca6c",
+              "parentUUID": "c42cbd74-fbdb-49c4-b08d-86e172d6cec6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can add required fields",
+              "fullTitle": "Create Other account tests I can add required fields",
+              "timedOut": null,
+              "duration": 2003,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.getInputControl('accountName').type('test other account');\ncy.contains('app-fiscal-year', 'Fiscal Year').click();\ncy.contains(' 2024 ').click();\ncy.getMatSelectControl('fundingRequestType').click()\n    .wait(500)\n    .get('mat-option')\n    .eq(1).click();\ncy.getInputControl('documentNumber').type('123');\ncy.getInputControl('accountOwner').click()\n    .wait(100)\n    .get('mat-option')\n    .eq(0).click();\ncy.contains('button', 'Add').click();",
+              "err": {},
+              "uuid": "10a7dc13-1659-4c4a-94ab-6e78226c4203",
+              "parentUUID": "c42cbd74-fbdb-49c4-b08d-86e172d6cec6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can update record",
+              "fullTitle": "Create Other account tests I can update record",
+              "timedOut": null,
+              "duration": 11969,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3500);\ncy.contains('app-fiscal-year', 'Fiscal Year').click();\ncy.contains(' 2024 ').click();\ncy.wait(2500);\ncy.get('[title=\"Account\"]').click();\ncy.get('datatable-body-cell').contains('test other account').click();\ncy.wait(500);\ncy.getInputControl('accountName').clear().type('update other account');\ncy.getMatSelectControl('fundingRequestType').click()\n    .wait(100)\n    .get('mat-option')\n    .eq(2).click();\ncy.getInputControl('documentNumber').clear().type('321');\ncy.contains('button', 'Update').click();\ncy.wait(3500);",
+              "err": {},
+              "uuid": "d6fb4126-6998-4085-bcb8-2039c88d677e",
+              "parentUUID": "c42cbd74-fbdb-49c4-b08d-86e172d6cec6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can delete record",
+              "fullTitle": "Create Other account tests I can delete record",
+              "timedOut": null,
+              "duration": 6434,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(1500);\ncy.get('datatable-body-cell').contains('update other account').eq(0).click();\ncy.wait(2500);\ncy.contains('button', 'Delete').click();\ncy.wait(2000);\ncy.contains('button', 'Yes').click();",
+              "err": {},
+              "uuid": "1d61bf5d-4ccf-40df-961e-1803c71f00b3",
+              "parentUUID": "c42cbd74-fbdb-49c4-b08d-86e172d6cec6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Clean up Accounts via API if needed",
+              "fullTitle": "Create Other account tests Clean up Accounts via API if needed",
+              "timedOut": null,
+              "duration": 290,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.retrieveToken();\ncy.GetInvoiceAccounts('2024').then((response) => {\n    response.body.forEach((item) => {\n        const alias = item.alias;\n        const id = item.id;\n        if (alias === 'update other account') {\n            cy.DeleteInvoicingAccount(id);\n            console.log('Account deleted on API Check to see why button did not work');\n        }\n        else\n            console.log('No account to delete');\n    });\n});",
+              "err": {},
+              "uuid": "75ee380a-ec0b-46ab-8f18-f911941cba83",
+              "parentUUID": "c42cbd74-fbdb-49c4-b08d-86e172d6cec6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9f808147-4968-4a33-b9a4-7f36e92d94fe",
+            "22e0f33f-32b4-4cf5-b75e-e3e3f3d8ca6c",
+            "10a7dc13-1659-4c4a-94ab-6e78226c4203",
+            "d6fb4126-6998-4085-bcb8-2039c88d677e",
+            "1d61bf5d-4ccf-40df-961e-1803c71f00b3",
+            "75ee380a-ec0b-46ab-8f18-f911941cba83"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 32316,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

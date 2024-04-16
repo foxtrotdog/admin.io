@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T22:23:31.470Z",
+    "end": "2024-04-15T22:23:39.542Z",
+    "duration": 8072,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c4c58868-2f6a-45d4-814a-aa9640295cef",
+      "title": "",
+      "fullFile": "cypress\\e2e\\_CIVFunding\\CivilianFunding\\ACCMA\\ACCMARequestMoreInformation.ts",
+      "file": "cypress\\e2e\\_CIVFunding\\CivilianFunding\\ACCMA\\ACCMARequestMoreInformation.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "af1eedb8-0a99-4c39-9d26-2f6d68b4613a",
+          "title": "ACCMA-RM Returns SF182 For More Information",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login as a ACCMA-RM",
+              "fullTitle": "ACCMA-RM Returns SF182 For More Information Login as a ACCMA-RM",
+              "timedOut": null,
+              "duration": 4857,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('Cypress', 'ACCMA RM');",
+              "err": {},
+              "uuid": "d3b4a13f-9a9a-45b2-8cfb-eeb7b8eb6b7a",
+              "parentUUID": "af1eedb8-0a99-4c39-9d26-2f6d68b4613a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Select Civlian Training Funding Request Tile From Dashboard, selects Cypress Civs SF182",
+              "fullTitle": "ACCMA-RM Returns SF182 For More Information Select Civlian Training Funding Request Tile From Dashboard, selects Cypress Civs SF182",
+              "timedOut": null,
+              "duration": 671,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.pending-work > :nth-child(1)').contains('Civilian Training Funding Requests').click();\ncy.contains('datatable-body-row', 'Civ, Cypress').within(() => {\n    // Assert that the row contains a cell with the name 'Civ, Cypress'\n    cy.get('datatable-body-cell').contains('Civ, Cypress').should('exist');\n    cy.get('datatable-body-cell').find('button').should('exist');\n    cy.get('datatable-body-cell').find('button').click();\n});",
+              "err": {},
+              "uuid": "46d05e37-a76f-48d1-b83f-1bc284a44738",
+              "parentUUID": "af1eedb8-0a99-4c39-9d26-2f6d68b4613a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Training Officer Returns SF182 For More Information",
+              "fullTitle": "ACCMA-RM Returns SF182 For More Information Training Officer Returns SF182 For More Information",
+              "timedOut": null,
+              "duration": 2375,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('button').contains(' Req Additional Info ').click();\ncy.get('[formcontrolname=remarks]').click().type('Requesting more information for automated tests');\ncy.get('button').contains('Change Status').click();\ncy.contains(' Request For Additional Info ').should('exist');",
+              "err": {},
+              "uuid": "aa889b70-f641-46a8-8539-3ed4daecaca5",
+              "parentUUID": "af1eedb8-0a99-4c39-9d26-2f6d68b4613a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d3b4a13f-9a9a-45b2-8cfb-eeb7b8eb6b7a",
+            "46d05e37-a76f-48d1-b83f-1bc284a44738",
+            "aa889b70-f641-46a8-8539-3ed4daecaca5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7903,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

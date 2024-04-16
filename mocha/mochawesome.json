@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:01:01.684Z",
+    "end": "2024-04-15T21:01:41.470Z",
+    "duration": 39786,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "39292494-ef60-46e4-84e2-432756ab5794",
+      "title": "",
+      "fullFile": "cypress\\e2e\\01-warmup.ts",
+      "file": "cypress\\e2e\\01-warmup.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "223289fd-504c-4da8-8a9b-46aed9b6b032",
+          "title": "First test to run to warm up server",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Generic test",
+              "fullTitle": "First test to run to warm up server Generic test",
+              "timedOut": null,
+              "duration": 39738,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.defaultLogin();\ncy.wait(1500);\ncy.VisitMenuPage('Students', 'Search');\ncy.wait(1500);\ncy.VisitMenuPage('Reports', 'Annual Reports');\ncy.wait(1500);\ncy.VisitMenuPage('Testing', 'Scheduling');\ncy.wait(1500);\ncy.VisitMenuPage('Accounting', 'Invoicing');\ncy.wait(1500);\ncy.VisitMenuPage('Forums', 'View');",
+              "err": {},
+              "uuid": "dce5ea5d-1af3-4ecb-a003-188a42af7101",
+              "parentUUID": "223289fd-504c-4da8-8a9b-46aed9b6b032",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "dce5ea5d-1af3-4ecb-a003-188a42af7101"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 39738,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:19:34.940Z",
+    "end": "2024-04-15T21:20:23.905Z",
+    "duration": 48965,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9ec3b632-3eba-4862-9040-4f4159bd035b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\_CAFunding\\Invoice-CA-Funding-Request.ts",
+      "file": "cypress\\e2e\\_CAFunding\\Invoice-CA-Funding-Request.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "41cf774e-4cba-4e27-922f-8218f090b937",
+          "title": "Invoice CA Funding Request",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Log in to accounting user",
+              "fullTitle": "Invoice CA Funding Request Log in to accounting user",
+              "timedOut": null,
+              "duration": 4749,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.defaultLogin();",
+              "err": {},
+              "uuid": "253b1daf-09ee-4716-b00e-240782107507",
+              "parentUUID": "41cf774e-4cba-4e27-922f-8218f090b937",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create Invoice",
+              "fullTitle": "Invoice CA Funding Request Create Invoice",
+              "timedOut": null,
+              "duration": 12587,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.VisitMenuPage('Accounting', 'Invoicing');\ncy.wait(500);\ncy.contains('button', 'Create Invoice').click().wait(300);\nconst nowDate = moment__WEBPACK_IMPORTED_MODULE_0__().add(2, 'days').format(\"M/DD/YYYY\");\ncy.get('[formcontrolname=invoiceDate]').click().type(nowDate.toString());\ncy.get('mat-select').click().wait(1500);\ncy.contains(' Institution Invoice ').click().wait(500);\ncy.get('[formcontrolname=invoiceNumber]').click().type(nowDate.toString() + ' Cypress CA').wait(500);\ncy.get('[formcontrolname=institution]').click().type('COMPTIA').wait(200);\ncy.contains(' COMPTIA ').click().wait(2500);\ncy.getMatSelectControl('payCenterId').click().wait(500);\ncy.contains(' COMPTIA - PAY CENTER ').click().wait(200);\ncy.contains('button', 'Create').click().wait(1500);",
+              "err": {},
+              "uuid": "eaf501f0-69fc-4941-8b31-d495460a0116",
+              "parentUUID": "41cf774e-4cba-4e27-922f-8218f090b937",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Adds Enrollments",
+              "fullTitle": "Invoice CA Funding Request Adds Enrollments",
+              "timedOut": null,
+              "duration": 13830,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(500);\ncy.contains('button', ' Add Enrollments ').click().wait(500);\ncy.get('[formcontrolname=fundingRequestTypeId]').click().wait(300);\ncy.contains(' Active CA ').click().wait(500);\ncy.get('[id=\"mat-radio-3\"]').contains('Fiscal Year').click().wait(3500);\ncy.get('app-fiscal-year').click().wait(2500);\ncy.get('mat-option').contains(' 2023 ').click().wait(2500);\ncy.get('#mat-mdc-checkbox-1-input').click().wait(1000);\ncy.contains('button', ' Certify Selected Enrollments ').click().wait(1500);",
+              "err": {},
+              "uuid": "44d57aa5-e599-4f36-b99e-dbd36240b7c5",
+              "parentUUID": "41cf774e-4cba-4e27-922f-8218f090b937",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Adds Invoice Payment",
+              "fullTitle": "Invoice CA Funding Request Adds Invoice Payment",
+              "timedOut": null,
+              "duration": 1279,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('button', ' Add Payment ').click();\ncy.get('[formcontrolname=account]').click();\ncy.contains(' Cypress CA EFT ').click();\nconst nowDate = moment__WEBPACK_IMPORTED_MODULE_0__().add(2, 'days').format(\"M/DD/YYYY\");\ncy.get('[formcontrolname=transactionDate]').click().type(nowDate.toString());\ncy.contains('button', 'Add Payment').click();\ncy.screenshot();",
+              "err": {},
+              "uuid": "b1e2d163-a8f3-42d8-bf7d-526aee7e0445",
+              "parentUUID": "41cf774e-4cba-4e27-922f-8218f090b937",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify CA is Certified and delete option does not exisit",
+              "fullTitle": "Invoice CA Funding Request Verify CA is Certified and delete option does not exisit",
+              "timedOut": null,
+              "duration": 3139,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(1500);\ncy.get(':nth-child(4) > .mat-mdc-card-content > .ngx-datatable > .visible > .datatable-body > datatable-selection > .datatable-scroll > .datatable-row-wrapper > .datatable-body-row > .datatable-row-center > :nth-child(2) > .datatable-body-cell-label > .ng-star-inserted').click().wait(500);\ncy.wait(500);\ncy.contains('View Assistance Request');\ncy.contains('Delete', 'Button').should('not.exist');\ncy.screenshot();",
+              "err": {},
+              "uuid": "126e627b-ee09-4084-9327-0ed0cb3aeb53",
+              "parentUUID": "41cf774e-4cba-4e27-922f-8218f090b937",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Find Invoice",
+              "fullTitle": "Invoice CA Funding Request Find Invoice",
+              "timedOut": null,
+              "duration": 8480,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/accounting/invoicing');\ncy.wait(1500);\ncy.get('[formcontrolname=institution]').click().type('COMPTIA').wait(200);\ncy.contains(' COMPTIA ').click().wait(500);\nconst nowDate = moment__WEBPACK_IMPORTED_MODULE_0__().add(2, 'days').format(\"M/DD/YYYY\");\ncy.get('app-fiscal-year').click().wait(2500);\ncy.get('mat-option').contains(' 2023 ').click().wait(500);\ncy.get('[formcontrolname=invoiceNumber]').click().type(nowDate.toString() + ' Cypress CA');\ncy.contains('button', 'Search').click().wait(300);\ncy.get('.datatable-body-cell-label').eq(1).click();",
+              "err": {},
+              "uuid": "a2337022-7407-4dc4-aeea-42a2826f8f0a",
+              "parentUUID": "41cf774e-4cba-4e27-922f-8218f090b937",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deletes Invoice",
+              "fullTitle": "Invoice CA Funding Request Deletes Invoice",
+              "timedOut": null,
+              "duration": 4521,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(':nth-child(5) > .mat-mdc-card-content > .ngx-datatable > .visible > .datatable-body > datatable-selection > .datatable-scroll > .datatable-row-wrapper > .datatable-body-row')\n    .within(() => {\n    cy.get('button').click().wait(500);\n});\ncy.contains('button', 'Yes').click();\ncy.get('[type=\"checkbox\"]').eq(0).check({ force: true }).wait(3000);\ncy.contains('button', ' Decertify Selected Enrollments ').click();\ncy.contains('Delete').click();\ncy.contains('button', 'Yes').click();",
+              "err": {},
+              "uuid": "efa51706-cace-4a36-9a35-84ae138ef1b9",
+              "parentUUID": "41cf774e-4cba-4e27-922f-8218f090b937",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "253b1daf-09ee-4716-b00e-240782107507",
+            "eaf501f0-69fc-4941-8b31-d495460a0116",
+            "44d57aa5-e599-4f36-b99e-dbd36240b7c5",
+            "b1e2d163-a8f3-42d8-bf7d-526aee7e0445",
+            "126e627b-ee09-4084-9327-0ed0cb3aeb53",
+            "a2337022-7407-4dc4-aeea-42a2826f8f0a",
+            "efa51706-cace-4a36-9a35-84ae138ef1b9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 48585,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

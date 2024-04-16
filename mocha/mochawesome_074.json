@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:56:28.560Z",
+    "end": "2024-04-15T21:56:37.307Z",
+    "duration": 8747,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7a4b7609-adfa-402b-8daa-36b2790f3f14",
+      "title": "",
+      "fullFile": "cypress\\e2e\\_CIVFunding\\CivilianFunding\\TrainingOfficers\\TrainingOfficerApproval.ts",
+      "file": "cypress\\e2e\\_CIVFunding\\CivilianFunding\\TrainingOfficers\\TrainingOfficerApproval.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6ff9c085-df42-4c52-be5c-6eadaff2b95c",
+          "title": "Training Officer approves individual SF182",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login as a Training Officer-P",
+              "fullTitle": "Training Officer approves individual SF182 Login as a Training Officer-P",
+              "timedOut": null,
+              "duration": 4818,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('Cypress', 'Training Officer-P');",
+              "err": {},
+              "uuid": "570a02c5-dfe5-48dc-bfdf-4dca7dd433e7",
+              "parentUUID": "6ff9c085-df42-4c52-be5c-6eadaff2b95c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Select Civlian Training Funding Request Tile From Dashboard, selects Cypress Civs SF182",
+              "fullTitle": "Training Officer approves individual SF182 Select Civlian Training Funding Request Tile From Dashboard, selects Cypress Civs SF182",
+              "timedOut": null,
+              "duration": 835,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.pending-work > :nth-child(1)').contains('Civilian Training Funding Requests').click();\ncy.contains('datatable-body-row', 'Civ, Cypress').within(() => {\n    // Assert that the row contains a cell with the name 'Civ, Cypress'\n    cy.get('datatable-body-cell').contains('Civ, Cypress').should('exist');\n    cy.get('datatable-body-cell').find('button').should('exist');\n    cy.get('datatable-body-cell').find('button').click();\n});",
+              "err": {},
+              "uuid": "57857a42-e35e-46b1-b0fd-0289c3cf0d91",
+              "parentUUID": "6ff9c085-df42-4c52-be5c-6eadaff2b95c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Training Officer approves individual SF182",
+              "fullTitle": "Training Officer approves individual SF182 Training Officer approves individual SF182",
+              "timedOut": null,
+              "duration": 2891,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('button').contains(' Approve ').click();\ncy.get('[formcontrolname=careerFieldGroupId]').click();\ncy.get('mat-option').contains(' Installations (41494512) ').click();\ncy.get('[formcontrolname=careerFieldGroupId]').click();\ncy.get('mat-option').contains(' Logistics (41494511) ').click();\ncy.get('[formcontrolname=civilianFundingTypeId]').click();\ncy.get('mat-option').contains(' Army Fellow (TACV) ');\ncy.get('mat-option').contains(' McCain Fellow (TACV) ');\ncy.get('mat-option').contains(' SIP (TACV) ');\ncy.get('mat-option').contains(' Army Civilian (TCIV) ');\ncy.get('mat-option').contains(' ACCMA Employee (TACE) ');\ncy.get('mat-option').contains(' Presidential Management Fellow (TACV) ');\ncy.get('mat-option').contains(' Emerging Leader (TACV) ');\ncy.get('mat-option').contains(' Army Fellow (TACV) ').click();\ncy.get('[formcontrolname=remarks]').click().type('Approved by automated test');\ncy.get('button').contains('Change Status').click();\ncy.contains(' Supervisor Concurs / Training Officer Approved / Pending ACCMA RM Review ').should('exist');",
+              "err": {},
+              "uuid": "96ee91ac-49e0-4b79-9f83-99da56be61fd",
+              "parentUUID": "6ff9c085-df42-4c52-be5c-6eadaff2b95c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "570a02c5-dfe5-48dc-bfdf-4dca7dd433e7",
+            "57857a42-e35e-46b1-b0fd-0289c3cf0d91",
+            "96ee91ac-49e0-4b79-9f83-99da56be61fd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8544,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

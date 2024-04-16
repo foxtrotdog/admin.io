@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:37:33.407Z",
+    "end": "2024-04-15T21:38:07.895Z",
+    "duration": 34488,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "efb9cfce-80ab-4f7f-b951-2879b8c408c1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\accounting\\FinancialManagementTracker\\FinancialManagementTracker_Functionality.ts",
+      "file": "cypress\\e2e\\accounting\\FinancialManagementTracker\\FinancialManagementTracker_Functionality.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "69bf463b-07b6-46e5-b104-7e351d428afa",
+          "title": "Civilian Update Financial Management Tracker",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logs in as ACMA RM",
+              "fullTitle": "Civilian Update Financial Management Tracker Logs in as ACMA RM",
+              "timedOut": null,
+              "duration": 4540,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('Chase', 'ACCMA');",
+              "err": {},
+              "uuid": "f2f77239-be65-44b9-bde9-940136be8a6b",
+              "parentUUID": "69bf463b-07b6-46e5-b104-7e351d428afa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigates to Permissions, Verfies Permissions",
+              "fullTitle": "Civilian Update Financial Management Tracker Navigates to Permissions, Verfies Permissions",
+              "timedOut": null,
+              "duration": 2944,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('#userprofile-menu', 'Chase ACCMA').click();\ncy.get('#profile-menu').click();\ncy.wait(1500);\ncy.contains('mat-checkbox', 'Financial Management Tracker ');",
+              "err": {},
+              "uuid": "592a1d65-b062-4c74-91b7-75d5ea4728b7",
+              "parentUUID": "69bf463b-07b6-46e5-b104-7e351d428afa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigates to Financial Management Tracker, select existing CIV funding program",
+              "fullTitle": "Civilian Update Financial Management Tracker Navigates to Financial Management Tracker, select existing CIV funding program",
+              "timedOut": null,
+              "duration": 13889,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('accounting/financial-management-tracker');\ncy.wait(3000);\n//cy.contains('button','Add Financial Management Tracker').click()\ncy.get('[formcontrolname=fundingRequestTypeId]').click().wait(2000);\ncy.contains('mat-option', ' Civilian Training ').click();\ncy.wait(2000);\ncy.get('[formcontrolname=civilianTrainingBudgetGroupId]').click();\ncy.contains('mat-option', ' TACV ').click().wait(2000);\ncy.get('[formcontrolname=\"civilianCareerFieldGroupId\"]').click();\ncy.contains('mat-option', ' Science, Engineering and Analysis ').click();\ncy.wait(3000);\ncy.contains('.row-header', 'Civilian Training').click();\n//cy.contains('button', 'Update').click()",
+              "err": {},
+              "uuid": "b5227362-08c6-48d7-bae4-37cd70389465",
+              "parentUUID": "69bf463b-07b6-46e5-b104-7e351d428afa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Update Existing Programmed Funds and Threshold Amount",
+              "fullTitle": "Civilian Update Financial Management Tracker Update Existing Programmed Funds and Threshold Amount",
+              "timedOut": null,
+              "duration": 10841,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.getInputControl('programmedFunds').clear().click().type('50000').wait(2000);\ncy.getInputControl('allotment').clear().click().type('50000').wait(2000);\ncy.getInputControl('thresholdAmount').clear().click().type('5000').wait(2000);\ncy.contains('button', 'Update').click().wait(2000);\ncy.getInputControl('programmedFunds').clear().click().type('40000');\ncy.getInputControl('allotment').clear().click().type('40000');\ncy.getInputControl('thresholdAmount').clear().click().type('4000');\ncy.contains('button', 'Update').click();",
+              "err": {},
+              "uuid": "b8492b35-274d-4c92-a416-5d5d7c753900",
+              "parentUUID": "69bf463b-07b6-46e5-b104-7e351d428afa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify that the programmed funds and threshold amount have been updated",
+              "fullTitle": "Civilian Update Financial Management Tracker Verify that the programmed funds and threshold amount have been updated",
+              "timedOut": null,
+              "duration": 2112,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.getInputControl('programmedFunds').should('have.value', '40000');\ncy.getInputControl('allotment').should('have.value', '40000');\ncy.getInputControl('thresholdAmount').should('have.value', '4000').wait(2000);\ncy.get('.datatable-body-row').first().children()\n    .should('contain', 'Adjusted Programmed Funds Adjusted Threshold Amount')\n    .and('contain', 'Chase ACCMA')\n    .and('contain', '-$10,000.00')\n    .and('contain', '-$1,000.00')\n    .and('contain', '$40,000.00')\n    .and('contain', '$4,000.00');",
+              "err": {},
+              "uuid": "a9478846-dfc2-4a71-b417-5f7da2b32dba",
+              "parentUUID": "69bf463b-07b6-46e5-b104-7e351d428afa",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f2f77239-be65-44b9-bde9-940136be8a6b",
+            "592a1d65-b062-4c74-91b7-75d5ea4728b7",
+            "b5227362-08c6-48d7-bae4-37cd70389465",
+            "b8492b35-274d-4c92-a416-5d5d7c753900",
+            "a9478846-dfc2-4a71-b417-5f7da2b32dba"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 34326,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

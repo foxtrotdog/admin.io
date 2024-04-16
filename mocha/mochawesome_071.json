@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:53:19.867Z",
+    "end": "2024-04-15T21:53:43.499Z",
+    "duration": 23632,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "71757197-a370-4ed3-add5-e8a5b091b5be",
+      "title": "",
+      "fullFile": "cypress\\e2e\\_CIVFunding\\CivilianFunding\\ACCMA\\ACCMA-Verify-SPD-Codes.ts",
+      "file": "cypress\\e2e\\_CIVFunding\\CivilianFunding\\ACCMA\\ACCMA-Verify-SPD-Codes.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "88ea5942-07d3-4288-b64a-c0fbb9c4ef7f",
+          "title": "Verify SPD Codes exist",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logs in as ACCMA User with Student Edit DoD Civilian permissions",
+              "fullTitle": "Verify SPD Codes exist Logs in as ACCMA User with Student Edit DoD Civilian permissions",
+              "timedOut": null,
+              "duration": 10383,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('Cypress', 'ACCMA');\ncy.wait(3500);",
+              "err": {},
+              "uuid": "e53496f9-7034-4793-a3a3-cbad9b2666a6",
+              "parentUUID": "88ea5942-07d3-4288-b64a-c0fbb9c4ef7f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Finds Civilian Student",
+              "fullTitle": "Verify SPD Codes exist Finds Civilian Student",
+              "timedOut": null,
+              "duration": 12970,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.VisitMenuPage('Students', 'Search');\ncy.wait(3500);\ncy.SearchStudent('Cypress', 'Civ');\ncy.wait(3500);",
+              "err": {},
+              "uuid": "a22116f7-824e-4f9c-8227-abd923bc748a",
+              "parentUUID": "88ea5942-07d3-4288-b64a-c0fbb9c4ef7f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify SPD Codes exist within Civilian Personnel Data Card > Appraisal Rating",
+              "fullTitle": "Verify SPD Codes exist Verify SPD Codes exist within Civilian Personnel Data Card > Appraisal Rating",
+              "timedOut": null,
+              "duration": 176,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.getMatSelectControl('civilianRatingOfRecordId').click();\ncy.get('mat-option').contains(' Level 1-Unacceptable. Fail Level Under Pass/Fail Program ');\ncy.get('mat-option').contains(' Level 2-Level Between Fully Successful and Unacceptable ').should('exist');\ncy.get('mat-option').contains(' Level 3-Fully Succ or Equiv. Pass Level Under Pass/Fail ').should('exist');\ncy.get('mat-option').contains(' Level 4-Between Outstanding and Fully Successful ').should('exist');\ncy.get('mat-option').contains(' Level 5-Outstanding or Equivalent ').should('exist');\ncy.get('mat-option').contains(' Exceptional ').should('exist');\ncy.get('mat-option').contains(' Highly Successful ').should('exist');\ncy.get('mat-option').contains(' Ineligible Merit Increase ').should('exist');\ncy.get('mat-option').contains(' Fully Successful ').should('exist');\ncy.get('mat-option').contains(' Minimally Satisfactory ').should('exist');\ncy.get('mat-option').contains(' Unsatisfactory ').should('exist');\ncy.get('mat-option').contains(' Not Rated. Not Yet Rcvd Rating of Rcrd Under Agcy Aprsl Sys ').should('exist');\ncy.get('mat-option').contains(' Exclusion. Employees Excluded from the Perf Appraisal Rqmts ').should('exist');",
+              "err": {},
+              "uuid": "da43a897-5967-44ac-ba75-3872e9a98a0a",
+              "parentUUID": "88ea5942-07d3-4288-b64a-c0fbb9c4ef7f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e53496f9-7034-4793-a3a3-cbad9b2666a6",
+            "a22116f7-824e-4f9c-8227-abd923bc748a",
+            "da43a897-5967-44ac-ba75-3872e9a98a0a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 23529,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:43:04.330Z",
+    "end": "2024-04-15T21:43:21.331Z",
+    "duration": 17001,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "125d8733-2908-4113-8795-f3cede300027",
+      "title": "",
+      "fullFile": "cypress\\e2e\\_CadetFunding\\Cadets\\Cadre-Cadet-Request-More-Info-CPR.ts",
+      "file": "cypress\\e2e\\_CadetFunding\\Cadets\\Cadre-Cadet-Request-More-Info-CPR.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "53acf41c-f8be-474f-be87-a388b71e7cb1",
+          "title": "Cadre Request for more information of Cadet CPR Message Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "clean up request",
+              "fullTitle": "Cadre Request for more information of Cadet CPR Message Test clean up request",
+              "timedOut": null,
+              "duration": 173,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.impersonateToken('3323715');\ncy.getFundingRequest('3323828').then((response) => {\n    const cadetBooksItem = response.body.find(item => item.fundingRequestTypeDescription === 'Cadet Books');\n    if (cadetBooksItem) {\n        const fundingRequestVar = cadetBooksItem.id;\n        console.log(fundingRequestVar);\n        const fundingRequestVarString = JSON.stringify(fundingRequestVar);\n        // Pass fundingRequestVarString to the PowerShell script\n        cy.exec(`powershell.exe -File ./cypress/support/DeleteFundingRequest.ps1 -fundingRequestVar '${fundingRequestVarString}'`).then((result) => {\n            console.log(result.stdout);\n            console.log(fundingRequestVar);\n            console.log(fundingRequestVarString);\n        });\n    }\n    else {\n        console.log('No item found with fundingRequestTypeDescription of Cadet Books');\n    }\n    // Convert fundingRequestVar to a JSON string\n});",
+              "err": {},
+              "uuid": "a688a589-4c92-4c3f-a8ee-e051170c53bc",
+              "parentUUID": "53acf41c-f8be-474f-be87-a388b71e7cb1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Sets up the test",
+              "fullTitle": "Cadre Request for more information of Cadet CPR Message Test Sets up the test",
+              "timedOut": null,
+              "duration": 189,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.impersonateToken('3323715');\ncy.PostFundingRequestStatus('3323828', '21394', '34');",
+              "err": {},
+              "uuid": "f448f7b4-6b31-4bf4-a673-f87a6eda96cd",
+              "parentUUID": "53acf41c-f8be-474f-be87-a388b71e7cb1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Log in as Cadre, find student",
+              "fullTitle": "Cadre Request for more information of Cadet CPR Message Test Log in as Cadre, find student",
+              "timedOut": null,
+              "duration": 15932,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/account/impersonate');\ncy.login('Bilal', 'Cadre 2BD');\ncy.visit('/student/view/3323828');\ncy.contains(' Funding Requests ').click().wait(2000);\ncy.contains('Spring Term'); //verify spring term\ncy.contains('button', 'View Details').click().wait(1000);\ncy.contains('attachment').click().wait(1000);\ncy.contains('DummyDoc.pdf').click();\ncy.contains('button', ' Req Additional Info ').click().wait(2000);\ncy.get('[formcontrolname=\"remarks\"]').click().type(messageKey + 'Cypress Message, fix this!!');\ncy.contains('button', 'Change Status').click().wait(1000);\ncy.contains(' Request For Additional Info ');",
+              "err": {},
+              "uuid": "9855afe3-1a20-4d64-ba2a-123b7782e138",
+              "parentUUID": "53acf41c-f8be-474f-be87-a388b71e7cb1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verifies message was sent from Admin Side",
+              "fullTitle": "Cadre Request for more information of Cadet CPR Message Test Verifies message was sent from Admin Side",
+              "timedOut": null,
+              "duration": 611,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(' Student Messages ').click();\n// cy.contains(' Funding Request Disapproved ').first().click()\ncy.contains('datatable-body-row', ' Additional Information Requested Regarding your Army Cadet Payment Request ').click();\ncy.contains(messageKey + 'Cypress Message, fix this!!');",
+              "err": {},
+              "uuid": "2b0ff4de-b4e3-4f78-9d11-fd8dd1df5060",
+              "parentUUID": "53acf41c-f8be-474f-be87-a388b71e7cb1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a688a589-4c92-4c3f-a8ee-e051170c53bc",
+            "f448f7b4-6b31-4bf4-a673-f87a6eda96cd",
+            "9855afe3-1a20-4d64-ba2a-123b7782e138",
+            "2b0ff4de-b4e3-4f78-9d11-fd8dd1df5060"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 16905,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

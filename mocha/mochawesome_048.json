@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:42:00.308Z",
+    "end": "2024-04-15T21:42:14.601Z",
+    "duration": 14293,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8516bd82-a5da-49a1-9774-b66b70eb6d55",
+      "title": "",
+      "fullFile": "cypress\\e2e\\_CadetFunding\\Cadre-Cadet-Messages\\Cadre-Cadet-Messaging.ts",
+      "file": "cypress\\e2e\\_CadetFunding\\Cadre-Cadet-Messages\\Cadre-Cadet-Messaging.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a64aefd6-4164-47da-9afb-4e895ac52745",
+          "title": "Cadre to Cadet messaging",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logs in, finds student",
+              "fullTitle": "Cadre to Cadet messaging Logs in, finds student",
+              "timedOut": null,
+              "duration": 5330,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/account/impersonate');\ncy.login('Bilal', 'Cadre 2BD');\ncy.visit('/student/view/3323828');",
+              "err": {},
+              "uuid": "5d446fb7-74ba-47c4-8e92-6c60bdf4b5fc",
+              "parentUUID": "a64aefd6-4164-47da-9afb-4e895ac52745",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Sends a message",
+              "fullTitle": "Cadre to Cadet messaging Sends a message",
+              "timedOut": null,
+              "duration": 8885,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(' Student Messages ').click().wait(1000);\ncy.contains('button', ' Create Message ').click().wait(2000);\ncy.get('[formcontrolname=\"messageThreadSubCategories\"]').click();\ncy.contains('mat-option', ' Grades ').click();\ncy.get('body').click(90, 451);\ncy.contains('mat-form-field', 'Subject').click().type('Cypress Test Message');\ncy.get('.k-iframe')\n    .then(($iframe) => {\n    const $body = $iframe.contents().find('body');\n    cy.wrap($body)\n        .find('.ProseMirror')\n        .type('Test message regarding grades')\n        .wait(1000);\n    cy.contains('button', ' Choose File ').click();\n    // Supporting Documentation \n    const fixtureFile = 'DummyDoc.pdf';\n    cy.get('input[type=\"file\"]').attachFile(fixtureFile);\n    cy.contains('button', 'Send').click().wait(1000);\n});",
+              "err": {},
+              "uuid": "416da91e-e386-40a8-8584-07fd8cfe5f2e",
+              "parentUUID": "a64aefd6-4164-47da-9afb-4e895ac52745",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5d446fb7-74ba-47c4-8e92-6c60bdf4b5fc",
+            "416da91e-e386-40a8-8584-07fd8cfe5f2e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14215,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

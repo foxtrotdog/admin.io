@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:38:09.410Z",
+    "end": "2024-04-15T21:38:40.758Z",
+    "duration": 31348,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "cad883d2-0ace-4883-8c3f-ad24d47f340a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\accounting\\invoice\\create-institution.ts",
+      "file": "cypress\\e2e\\accounting\\invoice\\create-institution.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fe6787ee-f5d6-488f-92cc-884ad7cf9160",
+          "title": "Institution Invoice Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "I can navigate to invoice",
+              "fullTitle": "Institution Invoice Tests I can navigate to invoice",
+              "timedOut": null,
+              "duration": 11392,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.defaultLogin();\ncy.get('fuse-sidebar').within(() => {\n    cy.contains('Accounting').click();\n    cy.wait(1000);\n    cy.contains('Invoicing').click();\n    cy.wait(5000);\n    cy.url().should('include', 'accounting/invoicing');\n});",
+              "err": {},
+              "uuid": "46939022-f3a0-4a48-a961-673a995952fe",
+              "parentUUID": "fe6787ee-f5d6-488f-92cc-884ad7cf9160",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can create invoice",
+              "fullTitle": "Institution Invoice Tests I can create invoice",
+              "timedOut": null,
+              "duration": 7523,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('button', 'Create Invoice').click();\ncy.getInputControl('invoiceDate').type('06/06/2024');\ncy.get('input-dropdown[placeholder=\"Invoice Type\"]').click();\ncy.wait(100);\ncy.get('mat-option').contains('Institution Invoice').click();\ncy.getInputControl('invoiceNumber').type('new invoice');\ncy.getInputControl('institution').click();\ncy.wait(100);\ncy.get('mat-option').first().click();\ncy.get('mat-select[formControlName=payCenterId]').click();\ncy.wait(100);\ncy.contains('button', 'View Pay Center Campuses').click();\ncy.wait(5000);\ncy.get('button').contains('Close').click();\ncy.get('mat-select[formControlName=payCenterId]').click();\ncy.wait(100);\ncy.get('mat-option')\n    .first()\n    .click();\ncy.contains('button', 'Create').click();",
+              "err": {},
+              "uuid": "2ef76cde-1be4-4e33-a53e-4f1d639fcd5a",
+              "parentUUID": "fe6787ee-f5d6-488f-92cc-884ad7cf9160",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can edit invoice",
+              "fullTitle": "Institution Invoice Tests I can edit invoice",
+              "timedOut": null,
+              "duration": 4319,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3500);\ncy.get('button').contains('Edit').click();\ncy.wait(100);\ncy.get('mat-dialog-container').within(() => {\n    cy.getInputControl('invoiceNumber').clear().type('some edited invoice');\n    cy.contains('button', 'Save').click();\n});",
+              "err": {},
+              "uuid": "b79becdb-898a-4449-8cce-fe5b95566246",
+              "parentUUID": "fe6787ee-f5d6-488f-92cc-884ad7cf9160",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can add a remark",
+              "fullTitle": "Institution Invoice Tests I can add a remark",
+              "timedOut": null,
+              "duration": 4107,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3500);\ncy.contains('button', 'Add Remarks').click();\ncy.wait(100);\ncy.get('mat-dialog-container').within(() => {\n    cy.getTextAreaControl('remark').type('some remark');\n    cy.contains('button', 'Save Remarks').click();\n});",
+              "err": {},
+              "uuid": "fba4db15-9a6d-48ac-b4f7-404b6090088e",
+              "parentUUID": "fe6787ee-f5d6-488f-92cc-884ad7cf9160",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can delete invoice",
+              "fullTitle": "Institution Invoice Tests I can delete invoice",
+              "timedOut": null,
+              "duration": 3827,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3500);\ncy.contains('button', 'Delete').click();\ncy.wait(100);\ncy.get('mat-dialog-container').within(() => {\n    cy.contains('button', 'Yes').click();\n});",
+              "err": {},
+              "uuid": "dae58c36-0014-42a8-8680-6637488e1d37",
+              "parentUUID": "fe6787ee-f5d6-488f-92cc-884ad7cf9160",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "46939022-f3a0-4a48-a961-673a995952fe",
+            "2ef76cde-1be4-4e33-a53e-4f1d639fcd5a",
+            "b79becdb-898a-4449-8cce-fe5b95566246",
+            "fba4db15-9a6d-48ac-b4f7-404b6090088e",
+            "dae58c36-0014-42a8-8680-6637488e1d37"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 31168,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

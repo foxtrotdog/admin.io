@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:47:25.573Z",
+    "end": "2024-04-15T21:47:45.718Z",
+    "duration": 20145,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f9298b4c-68de-4f04-a1dd-5088a69abd78",
+      "title": "",
+      "fullFile": "cypress\\e2e\\_CadetFunding\\Cadets\\PMS-XO-Disapproves-CPR.ts",
+      "file": "cypress\\e2e\\_CadetFunding\\Cadets\\PMS-XO-Disapproves-CPR.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "aea6d064-1188-43e7-aa57-abfb66beaf0f",
+          "title": "PMS/XO Disapproves CPR",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Sets up the test",
+              "fullTitle": "PMS/XO Disapproves CPR Sets up the test",
+              "timedOut": null,
+              "duration": 970,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.impersonateToken('3323715');\ncy.CreateCPR();\ncy.getFundingRequest('3327272').then((response) => {\n    cy.log(response.body);\n    const goalId = response.body[0].id;\n    cy.PostFundingRequestStatus('3327272', goalId, '34');\n});\ncy.getFundingRequest('3327272').then((response) => {\n    cy.log(response.body);\n    const goalId = response.body[0].id;\n    cy.PostFundingRequestStatus('3327272', goalId, '35');\n});",
+              "err": {},
+              "uuid": "a4cf8269-e485-473d-8c52-638e7c616080",
+              "parentUUID": "aea6d064-1188-43e7-aa57-abfb66beaf0f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "As a PMSXO when I log in and navigate to a student with a CPR",
+              "fullTitle": "PMS/XO Disapproves CPR As a PMSXO when I log in and navigate to a student with a CPR",
+              "timedOut": null,
+              "duration": 10529,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/account/impersonate');\ncy.wait(2000);\ncy.login('Bilal', 'PMS-XO');\ncy.visit('/student/view/3327272');\ncy.contains(' Funding Requests ').click().wait(2000);",
+              "err": {},
+              "uuid": "a4a3e977-257b-44fa-9b64-0cdb10cf68ff",
+              "parentUUID": "aea6d064-1188-43e7-aa57-abfb66beaf0f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "When I view request, and verify attachment",
+              "fullTitle": "PMS/XO Disapproves CPR When I view request, and verify attachment",
+              "timedOut": null,
+              "duration": 4592,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "Cypress.on('uncaught:exception', (err) => {\n    if (/ResizeObserver loop limit exceeded/.test(err.message)) {\n        // returning false here prevents Cypress from failing test\n        // this was throwing an error when clicking the attachment and the screen switching back to the funding request.\n        return false;\n    }\n});\ncy.contains('button', 'View Details').click().wait(1000);\ncy.contains('attachment').click().wait(1000);\ncy.contains('DummyDoc.pdf').click().wait(2000);\nreturn false;",
+              "err": {},
+              "uuid": "aea0fefe-97a0-4228-bc8c-9d83ae4a2b10",
+              "parentUUID": "aea6d064-1188-43e7-aa57-abfb66beaf0f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can select Disapprove button",
+              "fullTitle": "PMS/XO Disapproves CPR I can select Disapprove button",
+              "timedOut": null,
+              "duration": 3960,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('button', ' Disapprove ').click().wait(2000);\ncy.get('[formcontrolname=\"remarks\"]').click().type('Cypress Message, deleted CPR');\ncy.contains('button', 'Change Status').click().wait(1000);\ncy.contains('Cadet Payment Request Status Changed!');",
+              "err": {},
+              "uuid": "ad7c7c39-5680-4b5b-9902-7f5d53564cf5",
+              "parentUUID": "aea6d064-1188-43e7-aa57-abfb66beaf0f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a4cf8269-e485-473d-8c52-638e7c616080",
+            "a4a3e977-257b-44fa-9b64-0cdb10cf68ff",
+            "aea0fefe-97a0-4228-bc8c-9d83ae4a2b10",
+            "ad7c7c39-5680-4b5b-9902-7f5d53564cf5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 20051,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

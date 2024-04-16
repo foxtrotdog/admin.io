@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:03:40.022Z",
+    "end": "2024-04-15T21:04:02.295Z",
+    "duration": 22273,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4759353b-ebc7-4176-8162-f48e2ee7b75c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\user-account\\Add-Remove-Education-Level.ts",
+      "file": "cypress\\e2e\\user-account\\Add-Remove-Education-Level.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e74a7baa-6a1c-46f1-9781-d136898d7fcc",
+          "title": "Add and remove education levels",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Log in and find student",
+              "fullTitle": "Add and remove education levels Log in and find student",
+              "timedOut": null,
+              "duration": 14106,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.defaultLogin();\ncy.VisitMenuPage('Student', 'Search');\ncy.wait(500);\ncy.SearchStudent('Cypress', 'Student');\ncy.wait(2500);",
+              "err": {},
+              "uuid": "ddc0c2b9-15f4-4beb-b449-1b63aaffa9ee",
+              "parentUUID": "e74a7baa-6a1c-46f1-9781-d136898d7fcc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add Education Level",
+              "fullTitle": "Add and remove education levels Add Education Level",
+              "timedOut": null,
+              "duration": 5143,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Education Levels').click().wait(500);\ncy.contains(' CREATE EDUCATION LEVEL ').click().wait(500);\ncy.get('[formcontrolname=awardedDate]').click().type('7/1/2022').wait(500);\ncy.get('[formcontrolname=programName]').click().type('Cypress Test Degree').wait(500);\ncy.get('[formcontrolname=\"educationLevelId\"]').click();\ncy.contains('mat-option', ' LESS THAN HIGH SCHOOL DIPLOMA OR CREDENTIAL ').click().wait(500);\ncy.get('[formcontrolname=awardedEducationLevelMethodId]').click().wait(500);\ncy.contains('mat-option', ' UNKNOWN ').click();\ncy.contains('Submit ').click().wait(500);",
+              "err": {},
+              "uuid": "d01f7263-3fd3-4206-aa2c-f92b1b077560",
+              "parentUUID": "e74a7baa-6a1c-46f1-9781-d136898d7fcc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verifies Ed Level exists, deletes ed level",
+              "fullTitle": "Add and remove education levels Verifies Ed Level exists, deletes ed level",
+              "timedOut": null,
+              "duration": 2916,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Cypress Test Degree - UNKNOWN').wait(500);\ncy.contains(' LESS THAN HIGH SCHOOL DIPLOMA OR CREDENTIAL ').wait(500);\ncy.contains('07/01/2022').wait(500);\ncy.contains(' Delete ').click().wait(500);\ncy.contains('Yes').click().wait(500);",
+              "err": {},
+              "uuid": "7450b475-5dc2-402f-9abf-58117dc71b29",
+              "parentUUID": "e74a7baa-6a1c-46f1-9781-d136898d7fcc",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ddc0c2b9-15f4-4beb-b449-1b63aaffa9ee",
+            "d01f7263-3fd3-4206-aa2c-f92b1b077560",
+            "7450b475-5dc2-402f-9abf-58117dc71b29"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 22165,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

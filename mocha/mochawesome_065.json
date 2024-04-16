@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:51:52.097Z",
+    "end": "2024-04-15T21:51:59.324Z",
+    "duration": 7227,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "63ccdc90-7ba4-4e10-965a-1b486b085c90",
+      "title": "",
+      "fullFile": "cypress\\e2e\\reports\\general reports\\accounting\\frPaymentSummary.ts",
+      "file": "cypress\\e2e\\reports\\general reports\\accounting\\frPaymentSummary.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0ab3f2f0-77f0-4646-9ec7-cf39c4efe33a",
+          "title": "FR Payment Summary Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "I can navigate to accounting report page",
+              "fullTitle": "FR Payment Summary Test I can navigate to accounting report page",
+              "timedOut": null,
+              "duration": 5966,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.defaultLogin();\ncy.wait(100);\ncy.contains('Reports').click();\ncy.wait(100);\ncy.contains('General Reports').click();\ncy.wait(100);\ncy.contains('mat-panel-title', 'Accounting').click();",
+              "err": {},
+              "uuid": "b2c600f4-5fe8-4e80-b875-8cef7ba09ff2",
+              "parentUUID": "0ab3f2f0-77f0-4646-9ec7-cf39c4efe33a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can navigate to FR Payment Summary",
+              "fullTitle": "FR Payment Summary Test I can navigate to FR Payment Summary",
+              "timedOut": null,
+              "duration": 196,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('.reportHeader', 'FR Payment Summary').click();\ncy.contains('div', 'FR Payment Summary Report');\ncy.contains('span', 'No Records');",
+              "err": {},
+              "uuid": "4e23adc3-2826-4ddc-84f8-dc9573ac6656",
+              "parentUUID": "0ab3f2f0-77f0-4646-9ec7-cf39c4efe33a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can not run report without funding program selected",
+              "fullTitle": "FR Payment Summary Test I can not run report without funding program selected",
+              "timedOut": null,
+              "duration": 139,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('li', 'Required').should('not.exist');\ncy.contains('Run Report').click();\ncy.get('app-show-errors').contains('Required');",
+              "err": {},
+              "uuid": "c51f38d8-29ef-4d76-9eae-c60b21a1da00",
+              "parentUUID": "0ab3f2f0-77f0-4646-9ec7-cf39c4efe33a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can run report with funding program selected",
+              "fullTitle": "FR Payment Summary Test I can run report with funding program selected",
+              "timedOut": null,
+              "duration": 813,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.getMatSelectControl(\"fundingRequestType\").click()\n    .wait(500)\n    .get('mat-option')\n    .first()\n    .click();\ncy.contains('Run Report').click();\ncy.contains('strong', 'Total Records');",
+              "err": {},
+              "uuid": "cefcc0bb-13e7-436a-9077-a989b43102ec",
+              "parentUUID": "0ab3f2f0-77f0-4646-9ec7-cf39c4efe33a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b2c600f4-5fe8-4e80-b875-8cef7ba09ff2",
+            "4e23adc3-2826-4ddc-84f8-dc9573ac6656",
+            "c51f38d8-29ef-4d76-9eae-c60b21a1da00",
+            "cefcc0bb-13e7-436a-9077-a989b43102ec"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7114,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

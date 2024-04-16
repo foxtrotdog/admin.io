@@ -1,0 +1,219 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:37:12.531Z",
+    "end": "2024-04-15T21:37:29.304Z",
+    "duration": 16773,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7a1c2cec-cd40-4b51-9f9f-2800007d10d7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\accounting\\manage-accounts\\verify-unavailable-accounts.ts",
+      "file": "cypress\\e2e\\accounting\\manage-accounts\\verify-unavailable-accounts.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "058ca5e2-3c03-4a0d-92b2-fa4cdc95c6dd",
+          "title": "Verify unavailable accounts are not displayed",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "I can navigate to page",
+              "fullTitle": "Verify unavailable accounts are not displayed I can navigate to page",
+              "timedOut": null,
+              "duration": 5446,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('Cypress', 'SysOp');\ncy.get('fuse-sidebar').within(() => {\n    cy.contains('Accounting').click();\n    cy.wait(100);\n    cy.contains('Manage Accounts').click();\n});",
+              "err": {},
+              "uuid": "16df424c-2d1c-4d52-a842-5e48a55c7909",
+              "parentUUID": "058ca5e2-3c03-4a0d-92b2-fa4cdc95c6dd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Click create account",
+              "fullTitle": "Verify unavailable accounts are not displayed Click create account",
+              "timedOut": null,
+              "duration": 5175,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(5000);\ncy.contains('button', 'Add Account').click();\ncy.url().should('include', 'accounting/accounts/add-account');",
+              "err": {},
+              "uuid": "102d137b-5266-44da-a8a4-075089ecd9d6",
+              "parentUUID": "058ca5e2-3c03-4a0d-92b2-fa4cdc95c6dd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check Contract Account Type drop down",
+              "fullTitle": "Verify unavailable accounts are not displayed Check Contract Account Type drop down",
+              "timedOut": null,
+              "duration": 1142,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('mat-select').click()\n    .wait(1000)\n    .get('mat-option')\n    .contains(' Contract ').should('not.exist');",
+              "err": {},
+              "uuid": "e40775ed-220a-4099-99eb-ad3dd4fed159",
+              "parentUUID": "058ca5e2-3c03-4a0d-92b2-fa4cdc95c6dd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check Indirect Cost Only Account Type drop down",
+              "fullTitle": "Verify unavailable accounts are not displayed Check Indirect Cost Only Account Type drop down",
+              "timedOut": null,
+              "duration": 1206,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').type('{esc}');\ncy.get('mat-select').click()\n    .wait(1000)\n    .get('mat-option')\n    .contains(' Indirect Cost Only ').should('not.exist');",
+              "err": {},
+              "uuid": "7481054d-36b5-4279-ae08-ce7274044e10",
+              "parentUUID": "058ca5e2-3c03-4a0d-92b2-fa4cdc95c6dd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check MIPR Account Type drop down",
+              "fullTitle": "Verify unavailable accounts are not displayed Check MIPR Account Type drop down",
+              "timedOut": null,
+              "duration": 1221,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').type('{esc}');\ncy.get('mat-select').click()\n    .wait(1000)\n    .get('mat-option')\n    .contains(' MIPR ').should('not.exist');",
+              "err": {},
+              "uuid": "021ad046-3a24-4448-9932-b7702108a452",
+              "parentUUID": "058ca5e2-3c03-4a0d-92b2-fa4cdc95c6dd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check PR/PO Account Type drop down",
+              "fullTitle": "Verify unavailable accounts are not displayed Check PR/PO Account Type drop down",
+              "timedOut": null,
+              "duration": 1217,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').type('{esc}');\ncy.get('mat-select').click()\n    .wait(1000)\n    .get('mat-option')\n    .contains(' PR/PO ').should('not.exist');",
+              "err": {},
+              "uuid": "48a114d9-f8af-4180-af42-1dd716d5df5c",
+              "parentUUID": "058ca5e2-3c03-4a0d-92b2-fa4cdc95c6dd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check PR/PO Account Type drop down",
+              "fullTitle": "Verify unavailable accounts are not displayed Check PR/PO Account Type drop down",
+              "timedOut": null,
+              "duration": 1195,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').type('{esc}');\ncy.get('mat-select').click()\n    .wait(1000)\n    .get('mat-option')\n    .contains(' GFEBS ').should('exist');",
+              "err": {},
+              "uuid": "d1888d12-d2b3-4ad9-b379-9aae7888f715",
+              "parentUUID": "058ca5e2-3c03-4a0d-92b2-fa4cdc95c6dd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "16df424c-2d1c-4d52-a842-5e48a55c7909",
+            "102d137b-5266-44da-a8a4-075089ecd9d6",
+            "e40775ed-220a-4099-99eb-ad3dd4fed159",
+            "7481054d-36b5-4279-ae08-ce7274044e10",
+            "021ad046-3a24-4448-9932-b7702108a452",
+            "48a114d9-f8af-4180-af42-1dd716d5df5c",
+            "d1888d12-d2b3-4ad9-b379-9aae7888f715"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 16602,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

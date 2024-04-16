@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:43:44.058Z",
+    "end": "2024-04-15T21:44:00.850Z",
+    "duration": 16792,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a01ea348-6f51-4485-ad0a-7754c65b77f1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\_CadetFunding\\Cadets\\G8-Pre-Approver-Disapproves-CPR.ts",
+      "file": "cypress\\e2e\\_CadetFunding\\Cadets\\G8-Pre-Approver-Disapproves-CPR.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a228de97-b9af-4c62-a210-a20c5ee09d14",
+          "title": "G8 PreApprover Disapproves CPR",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Sets up the test",
+              "fullTitle": "G8 PreApprover Disapproves CPR Sets up the test",
+              "timedOut": null,
+              "duration": 1582,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.impersonateToken('3323715');\ncy.CreateCPR();\ncy.getFundingRequest('3327272').then((response) => {\n    cy.log(response.body);\n    const goalId = response.body[0].id;\n    cy.PostFundingRequestStatus('3327272', goalId, '34');\n});\ncy.impersonateToken('3323715');\ncy.getFundingRequest('3327272').then((response) => {\n    cy.log(response.body);\n    const goalId = response.body[0].id;\n    cy.PostFundingRequestStatus('3327272', goalId, '35');\n});\ncy.impersonateToken('3323716');\ncy.getFundingRequest('3327272').then((response) => {\n    cy.log(response.body);\n    const goalId = response.body[0].id;\n    cy.PostFundingRequestStatus('3327272', goalId, '46');\n});",
+              "err": {},
+              "uuid": "3a36b298-a611-411a-881d-c0f1a7a9301c",
+              "parentUUID": "a228de97-b9af-4c62-a210-a20c5ee09d14",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "When I log in as a G8 Pre-Approver and I find the student",
+              "fullTitle": "G8 PreApprover Disapproves CPR When I log in as a G8 Pre-Approver and I find the student",
+              "timedOut": null,
+              "duration": 9906,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/account/impersonate');\ncy.login('Bilal', 'G8 Pre-Approver');\ncy.visit('/student/view/3327272');\ncy.contains(' Funding Requests ').click().wait(2000);",
+              "err": {},
+              "uuid": "c43c1f53-035c-4884-aa5a-3c2d8995080f",
+              "parentUUID": "a228de97-b9af-4c62-a210-a20c5ee09d14",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "And I navigate to a student with a CPR to verify the documents",
+              "fullTitle": "G8 PreApprover Disapproves CPR And I navigate to a student with a CPR to verify the documents",
+              "timedOut": null,
+              "duration": 1177,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('button', 'View Details').click().wait(1000);",
+              "err": {},
+              "uuid": "2193bc9b-057f-42f6-8109-cef82ef74a31",
+              "parentUUID": "a228de97-b9af-4c62-a210-a20c5ee09d14",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Then I can select the Dissaprove button",
+              "fullTitle": "G8 PreApprover Disapproves CPR Then I can select the Dissaprove button",
+              "timedOut": null,
+              "duration": 4030,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('button', ' Disapprove ').click().wait(2000);\ncy.get('[formcontrolname=\"remarks\"]').click().type('Cypress Message, deleted CPR');\ncy.contains('button', 'Change Status').click().wait(1000);\ncy.contains('Cadet Payment Request Status Changed!');",
+              "err": {},
+              "uuid": "5f948a4c-1ff2-4e7d-ad9d-c99b766b2e74",
+              "parentUUID": "a228de97-b9af-4c62-a210-a20c5ee09d14",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3a36b298-a611-411a-881d-c0f1a7a9301c",
+            "c43c1f53-035c-4884-aa5a-3c2d8995080f",
+            "2193bc9b-057f-42f6-8109-cef82ef74a31",
+            "5f948a4c-1ff2-4e7d-ad9d-c99b766b2e74"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 16695,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

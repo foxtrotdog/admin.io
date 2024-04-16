@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:33:56.789Z",
+    "end": "2024-04-15T21:34:36.873Z",
+    "duration": 40084,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "09293347-a84b-4bcd-8dbe-22052233cce3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\accounting\\manage-accounts\\create-gfebs-account.ts",
+      "file": "cypress\\e2e\\accounting\\manage-accounts\\create-gfebs-account.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "19ddc319-62db-4aef-9d69-c30a6038365e",
+          "title": "Create GFEBS account tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "I can navigate to page",
+              "fullTitle": "Create GFEBS account tests I can navigate to page",
+              "timedOut": null,
+              "duration": 5790,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('Cypress', 'Finance User');\ncy.get('fuse-sidebar').within(() => {\n    cy.contains('Accounting').click();\n    cy.wait(100);\n    cy.contains('Manage Accounts').click();\n});",
+              "err": {},
+              "uuid": "f70e9ff4-d424-45cc-b6bc-f29e18424f79",
+              "parentUUID": "19ddc319-62db-4aef-9d69-c30a6038365e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create account",
+              "fullTitle": "Create GFEBS account tests Create account",
+              "timedOut": null,
+              "duration": 6403,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(5000);\ncy.contains('button', 'Add Account').click();\ncy.url().should('include', 'accounting/accounts/add-account');\ncy.get('mat-select').click()\n    .wait(1000)\n    .get('mat-option')\n    .contains(' GFEBS ').click();",
+              "err": {},
+              "uuid": "b1f17ba1-a625-4f31-8a11-7c3db0343bbe",
+              "parentUUID": "19ddc319-62db-4aef-9d69-c30a6038365e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can add required fields",
+              "fullTitle": "Create GFEBS account tests I can add required fields",
+              "timedOut": null,
+              "duration": 3975,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.getInputControl('accountName').type('test GFEBS account');\ncy.getMatSelectControl('fundingRequestType').click()\n    .wait(100).get('mat-option').eq(1).click();\ncy.getInputControl('documentNumber').type('123');\ncy.get('[formcontrolname=\"fund\"]').click().type('test');\ncy.get('[formcontrolname=\"fundsCenter\"]').click().type('test');\ncy.get('[formcontrolname=\"functionalArea\"]').click().type('test');\ncy.getInputControl('internalOrder').click().type('test');\ncy.getInputControl('costCenter').click().type('test');\ncy.getInputControl('wbsElement').click().type('test');\ncy.getInputControl('accountOwner').click().type('Finance User')\n    .wait(1000)\n    .get('mat-option')\n    .first().click();\ncy.contains('button', 'Add').click();",
+              "err": {},
+              "uuid": "48920559-2f40-4f38-952c-a78ac61fe2fa",
+              "parentUUID": "19ddc319-62db-4aef-9d69-c30a6038365e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can update record",
+              "fullTitle": "Create GFEBS account tests I can update record",
+              "timedOut": null,
+              "duration": 18020,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3500);\ncy.get('datatable-body-cell').contains('test GFEBS account').click();\ncy.wait(3500);\ncy.getInputControl('accountName').clear().type('update GFEBS account');\ncy.wait(3500);\ncy.getMatSelectControl('fundingRequestType').click()\n    .wait(100)\n    .get('mat-option')\n    .eq(2).click();\ncy.getInputControl('documentNumber').type('123');\ncy.get('[formcontrolname=\"fund\"]').click().clear().type('updated');\ncy.get('[formcontrolname=\"fundsCenter\"]').click().clear().type('updated');\ncy.get('[formcontrolname=\"functionalArea\"]').click().clear().type('updated text');\ncy.getInputControl('internalOrder').click().clear().type('updated text');\ncy.getInputControl('costCenter').click().clear().type('updated');\ncy.getInputControl('wbsElement').click().clear().type('updated text');\ncy.contains('button', 'Update').click();\ncy.wait(3500);",
+              "err": {},
+              "uuid": "b5ec3f3a-0ea4-42c3-91d0-0c4f5cdf8db0",
+              "parentUUID": "19ddc319-62db-4aef-9d69-c30a6038365e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can delete record",
+              "fullTitle": "Create GFEBS account tests I can delete record",
+              "timedOut": null,
+              "duration": 5531,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(1500);\ncy.get('datatable-body-cell').contains('update GFEBS account').click();\ncy.wait(3500);\ncy.contains('button', 'Delete').click();\ncy.wait(100);\ncy.contains('button', 'Yes').click();",
+              "err": {},
+              "uuid": "782ebad2-c66c-4d24-aad7-89f5e282d366",
+              "parentUUID": "19ddc319-62db-4aef-9d69-c30a6038365e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Clean up Accounts via API if needed",
+              "fullTitle": "Create GFEBS account tests Clean up Accounts via API if needed",
+              "timedOut": null,
+              "duration": 211,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.retrieveToken();\ncy.GetInvoiceAccounts('2024').then((response) => {\n    response.body.forEach((item) => {\n        const alias = item.alias;\n        const id = item.id;\n        if (alias === 'update GFEBS account') {\n            cy.DeleteInvoicingAccount(id);\n            console.log('Account deleted on API Check to see why button did not work');\n        }\n        else\n            console.log('No account to delete');\n    });\n});",
+              "err": {},
+              "uuid": "9eea6b6b-1303-4280-9444-50219b456414",
+              "parentUUID": "19ddc319-62db-4aef-9d69-c30a6038365e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f70e9ff4-d424-45cc-b6bc-f29e18424f79",
+            "b1f17ba1-a625-4f31-8a11-7c3db0343bbe",
+            "48920559-2f40-4f38-952c-a78ac61fe2fa",
+            "b5ec3f3a-0ea4-42c3-91d0-0c4f5cdf8db0",
+            "782ebad2-c66c-4d24-aad7-89f5e282d366",
+            "9eea6b6b-1303-4280-9444-50219b456414"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 39930,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

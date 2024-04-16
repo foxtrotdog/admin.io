@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:34:38.750Z",
+    "end": "2024-04-15T21:35:18.173Z",
+    "duration": 39423,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "499ad145-16c9-4c00-bd82-5bf2e123b390",
+      "title": "",
+      "fullFile": "cypress\\e2e\\accounting\\manage-accounts\\create-gpc-account.ts",
+      "file": "cypress\\e2e\\accounting\\manage-accounts\\create-gpc-account.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "63d7e8e4-2572-4151-b6f7-1488bd9f1e4c",
+          "title": "Create GPC account tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "I can navigate to page",
+              "fullTitle": "Create GPC account tests I can navigate to page",
+              "timedOut": null,
+              "duration": 7181,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.defaultLogin();\ncy.get('fuse-sidebar').within(() => {\n    cy.contains('Accounting').click();\n    cy.wait(1000);\n    cy.contains('Manage Accounts').click();\n});",
+              "err": {},
+              "uuid": "ab879b8a-05ad-4759-bec5-0ad00be2c6fc",
+              "parentUUID": "63d7e8e4-2572-4151-b6f7-1488bd9f1e4c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create account",
+              "fullTitle": "Create GPC account tests Create account",
+              "timedOut": null,
+              "duration": 5489,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(5000);\ncy.contains('button', 'Add Account').click();\ncy.url().should('include', 'accounting/accounts/add-account');\ncy.get('mat-select').click()\n    .wait(100)\n    .get('mat-option')\n    .contains('GPC').click();",
+              "err": {},
+              "uuid": "a1e2ab24-2f9e-45ff-9eee-d42f08357310",
+              "parentUUID": "63d7e8e4-2572-4151-b6f7-1488bd9f1e4c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can add required fields",
+              "fullTitle": "Create GPC account tests I can add required fields",
+              "timedOut": null,
+              "duration": 2459,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.getInputControl('accountName').type('A test gpc account');\ncy.contains('app-fiscal-year', 'Fiscal Year').click();\ncy.contains(' 2024 ').click();\ncy.getMatSelectControl('fundingRequestType').click()\n    .wait(100)\n    .get('mat-option')\n    .eq(1).click();\ncy.getInputControl('documentNumber').type('123');\ncy.getInputControl('sfis').type('sfis');\ncy.getInputControl('accountOwner').click()\n    .wait(100)\n    .get('mat-option')\n    .eq(0).click();\ncy.getInputControl('nameOnCard').type('card name');\ncy.getInputControl('cardNumber').type('123456789');\ncy.contains('button', 'Add').click();",
+              "err": {},
+              "uuid": "95de5388-234f-4efb-a0dc-70df3a49f393",
+              "parentUUID": "63d7e8e4-2572-4151-b6f7-1488bd9f1e4c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can update record",
+              "fullTitle": "Create GPC account tests I can update record",
+              "timedOut": null,
+              "duration": 18650,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(3500);\ncy.contains('app-fiscal-year', 'Fiscal Year').click();\ncy.contains(' 2024 ').click();\ncy.wait(2500);\ncy.get('datatable-body-cell').contains('A test gpc account').click();\ncy.wait(3500);\ncy.getInputControl('accountName').clear().type('An updated gpc account');\ncy.wait(3500);\ncy.getMatSelectControl('fundingRequestType').click()\n    .wait(100)\n    .get('mat-option')\n    .eq(2).click();\ncy.getInputControl('documentNumber').clear().type('321');\ncy.getInputControl('sfis').clear().type('sifs');\ncy.contains('button', 'Update').click();\ncy.wait(3500);",
+              "err": {},
+              "uuid": "b0932e75-cbc7-495b-a6d3-42ce92ca8dd2",
+              "parentUUID": "63d7e8e4-2572-4151-b6f7-1488bd9f1e4c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can delete record",
+              "fullTitle": "Create GPC account tests I can delete record",
+              "timedOut": null,
+              "duration": 5149,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(2500);\ncy.get('datatable-body-cell').contains('An updated ').eq(0).click();\ncy.contains('button', 'Delete').click();\ncy.wait(2000);\ncy.contains('button', 'Yes').click();",
+              "err": {},
+              "uuid": "dfd4d2f9-da1d-4c36-98cf-c1c113c361c1",
+              "parentUUID": "63d7e8e4-2572-4151-b6f7-1488bd9f1e4c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Clean up Accounts via API if needed",
+              "fullTitle": "Create GPC account tests Clean up Accounts via API if needed",
+              "timedOut": null,
+              "duration": 206,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.retrieveToken();\ncy.GetInvoiceAccounts('2024').then((response) => {\n    response.body.forEach((item) => {\n        const alias = item.alias;\n        const id = item.id;\n        if (alias === 'An updated gpc account') {\n            cy.DeleteInvoicingAccount(id);\n            console.log('Account deleted on API Check to see why button did not work');\n        }\n        else\n            console.log('No account to delete');\n    });\n});",
+              "err": {},
+              "uuid": "eb819845-903d-4d83-a88d-e247fb18248b",
+              "parentUUID": "63d7e8e4-2572-4151-b6f7-1488bd9f1e4c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ab879b8a-05ad-4759-bec5-0ad00be2c6fc",
+            "a1e2ab24-2f9e-45ff-9eee-d42f08357310",
+            "95de5388-234f-4efb-a0dc-70df3a49f393",
+            "b0932e75-cbc7-495b-a6d3-42ce92ca8dd2",
+            "dfd4d2f9-da1d-4c36-98cf-c1c113c361c1",
+            "eb819845-903d-4d83-a88d-e247fb18248b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 39134,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

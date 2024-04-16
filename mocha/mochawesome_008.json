@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:06:22.374Z",
+    "end": "2024-04-15T21:06:49.438Z",
+    "duration": 27064,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "78d5800a-0499-4fb8-8eeb-2f777194cde5",
+      "title": "",
+      "fullFile": "cypress\\e2e\\user-account\\Message-Student.ts",
+      "file": "cypress\\e2e\\user-account\\Message-Student.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cf820112-2f8e-43a2-b878-0afeb50cb902",
+          "title": "Send Student A Message",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Finds Student",
+              "fullTitle": "Send Student A Message Finds Student",
+              "timedOut": null,
+              "duration": 11030,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.defaultLogin();\ncy.VisitMenuPage('Student', 'Search');\ncy.SearchStudent('Cypress', 'Student');",
+              "err": {},
+              "uuid": "3a8aeda1-497e-459d-8e0d-866afaea5cbf",
+              "parentUUID": "cf820112-2f8e-43a2-b878-0afeb50cb902",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigates to Document Upload Tab",
+              "fullTitle": "Send Student A Message Navigates to Document Upload Tab",
+              "timedOut": null,
+              "duration": 234,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(' Student Messages ').click();",
+              "err": {},
+              "uuid": "363bb03d-6d55-431b-8f25-10d70b921dbb",
+              "parentUUID": "cf820112-2f8e-43a2-b878-0afeb50cb902",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Sends a student a message",
+              "fullTitle": "Send Student A Message Sends a student a message",
+              "timedOut": null,
+              "duration": 14866,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(' Create Message ').click()\n    .wait(3500);\ncy.get('mat-select[formcontrolname=\"messageThreadSubCategories\"]').click({ force: true });\ncy.get('mat-option').contains('Grades').click();\ncy.wait(1500);\ncy.get('body').click(90, 451)\n    .wait(3500);\ncy.get('input[formcontrolname=\"subject\"]').click({ force: true })\n    .wait(1500)\n    .type('Cypress Testing Message');\ncy.get('body')\n    .click(90, 451);\ncy.get('.k-iframe')\n    .then(($iframe) => {\n    const $body = $iframe.contents().find('body');\n    cy.wrap($body)\n        .find('.ProseMirror')\n        .type('Test message regarding grades')\n        .wait(1000);\n    cy.contains('button', ' Choose File ').click();\n    //fix this button\n    cy.get('mat-dialog-actions').contains('Send').click();\n});",
+              "err": {},
+              "uuid": "faf5d3a6-b38c-4707-a72a-e5bb92607ffe",
+              "parentUUID": "cf820112-2f8e-43a2-b878-0afeb50cb902",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can navigate to my messages page",
+              "fullTitle": "Send Student A Message I can navigate to my messages page",
+              "timedOut": null,
+              "duration": 748,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#userprofile-menu').click();\ncy.get('#inbox-btn').click();",
+              "err": {},
+              "uuid": "be158f42-b25f-4834-a9b2-0b2504932f42",
+              "parentUUID": "cf820112-2f8e-43a2-b878-0afeb50cb902",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3a8aeda1-497e-459d-8e0d-866afaea5cbf",
+            "363bb03d-6d55-431b-8f25-10d70b921dbb",
+            "faf5d3a6-b38c-4707-a72a-e5bb92607ffe",
+            "be158f42-b25f-4834-a9b2-0b2504932f42"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 26878,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

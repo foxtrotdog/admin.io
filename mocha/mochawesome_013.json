@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:13:07.047Z",
+    "end": "2024-04-15T21:13:55.618Z",
+    "duration": 48571,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "241bc04f-76b9-48f4-84ca-6cf599dfea1d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\user-account\\Update-Student-Contact-Info.ts",
+      "file": "cypress\\e2e\\user-account\\Update-Student-Contact-Info.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "95e7b2fd-80ac-45c9-8d72-07c4ec9b4826",
+          "title": "Update Students Basic Contact Information",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Opens Student Contact Information",
+              "fullTitle": "Update Students Basic Contact Information Opens Student Contact Information",
+              "timedOut": null,
+              "duration": 11812,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.defaultLogin();\ncy.VisitMenuPage('Student', 'Search');\ncy.SearchStudent('Cypress', 'Student');",
+              "err": {},
+              "uuid": "6035efcc-81fe-4557-89be-5aee3c55ef12",
+              "parentUUID": "95e7b2fd-80ac-45c9-8d72-07c4ec9b4826",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Update SSN",
+              "fullTitle": "Update Students Basic Contact Information Update SSN",
+              "timedOut": null,
+              "duration": 11803,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[formcontrolname=ssn]')\n    .click()\n    .wait(1000)\n    .clear()\n    .type('abc123');\ncy.get('body').click().wait(1000);\ncy.get('app-show-errors').contains('Must be number');\ncy.get('input[formcontrolname=ssn]')\n    .click()\n    .wait(1000)\n    .clear()\n    .type('888888881').wait(1000);\ncy.contains('Update').click().wait(2000);\ncy.get('input[formcontrolname=ssn]')\n    .click()\n    .wait(1000)\n    .clear()\n    .type('888888888').wait(1000);\ncy.contains('Update').click().wait(2000);",
+              "err": {},
+              "uuid": "b4296006-5255-4f2a-bf17-f214a09ad3ce",
+              "parentUUID": "95e7b2fd-80ac-45c9-8d72-07c4ec9b4826",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Update Date of Birth",
+              "fullTitle": "Update Students Basic Contact Information Update Date of Birth",
+              "timedOut": null,
+              "duration": 4610,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[formcontrolname=dateOfBirth]')\n    .click()\n    .wait(1000)\n    .clear()\n    .type('1/1/1990').wait(1000);\ncy.contains('Update').click().wait(2000);",
+              "err": {},
+              "uuid": "ae99e153-46aa-41b4-9ab2-5e439142a8dc",
+              "parentUUID": "95e7b2fd-80ac-45c9-8d72-07c4ec9b4826",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Updates Contact Information",
+              "fullTitle": "Update Students Basic Contact Information Updates Contact Information",
+              "timedOut": null,
+              "duration": 6358,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[formcontrolname=userWorkEmail]')\n    .click()\n    .wait(1000)\n    .clear()\n    .type('CypressStudent@bamtech.net');\n//update duty phone\ncy.get('input[formcontrolname=userWorkPhone]')\n    .click()\n    .wait(1000)\n    .clear()\n    .type('8888888888');\n//update personal email\ncy.get('input[formcontrolname=userPersonalEmail]')\n    .click()\n    .wait(1000)\n    .clear()\n    .type('CypressStudent@bamtech.net');\n//update personal phone\ncy.get('input[formcontrolname=userMobilePhone]')\n    .click()\n    .wait(1000)\n    .clear()\n    .type('8888884887');",
+              "err": {},
+              "uuid": "13206a5d-ad22-47a4-9b41-249d349aab35",
+              "parentUUID": "95e7b2fd-80ac-45c9-8d72-07c4ec9b4826",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Updates Mailing Address",
+              "fullTitle": "Update Students Basic Contact Information Updates Mailing Address",
+              "timedOut": null,
+              "duration": 13735,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[formcontrolname=street1]')\n    .click()\n    .wait(1000)\n    .clear()\n    .type('104 Test Lane').wait(1000);\ncy.contains('Update').click().wait(2000);\ncy.get('input[formcontrolname=city]')\n    .click()\n    .wait(1000)\n    .clear()\n    .type('Dothan').wait(1000);\ncy.contains('Update').click().wait(2000);\ncy.get('input[formcontrolname=zip]')\n    .click()\n    .wait(1000)\n    .clear()\n    .type('55123').wait(1000);\ncy.contains('Update').click().wait(2000);",
+              "err": {},
+              "uuid": "aba8c5a5-474a-4164-bdc1-e8030f6a01c1",
+              "parentUUID": "95e7b2fd-80ac-45c9-8d72-07c4ec9b4826",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6035efcc-81fe-4557-89be-5aee3c55ef12",
+            "b4296006-5255-4f2a-bf17-f214a09ad3ce",
+            "ae99e153-46aa-41b4-9ab2-5e439142a8dc",
+            "13206a5d-ad22-47a4-9b41-249d349aab35",
+            "aba8c5a5-474a-4164-bdc1-e8030f6a01c1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 48318,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

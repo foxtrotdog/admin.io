@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:39:00.466Z",
+    "end": "2024-04-15T21:39:15.950Z",
+    "duration": 15484,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1921e50c-e66d-470b-aa28-4ec576b38716",
+      "title": "",
+      "fullFile": "cypress\\e2e\\accounting\\invoice\\Institution-Search.ts",
+      "file": "cypress\\e2e\\accounting\\invoice\\Institution-Search.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "01ca32c7-1825-4ce8-a144-bad6c359f3e3",
+          "title": "Institution Search filter on Pending Pre Invoices",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "I can navigate to invoice",
+              "fullTitle": "Institution Search filter on Pending Pre Invoices I can navigate to invoice",
+              "timedOut": null,
+              "duration": 10955,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.defaultLogin();\ncy.get('fuse-sidebar').within(() => {\n    cy.contains('Accounting').click();\n    cy.wait(1000);\n    cy.contains('Invoicing').click();\n    cy.wait(5000);\n    cy.url().should('include', 'accounting/invoicing');\n});",
+              "err": {},
+              "uuid": "4c4c71bd-7e04-4dd2-b14d-cfc54e779a7c",
+              "parentUUID": "01ca32c7-1825-4ce8-a144-bad6c359f3e3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can click Process AI Invoices and select FY",
+              "fullTitle": "Institution Search filter on Pending Pre Invoices I can click Process AI Invoices and select FY",
+              "timedOut": null,
+              "duration": 2393,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('button', 'Process AI Invoices').click().wait(2000);\ncy.contains('app-fiscal-year', 'Fiscal Year').click();\ncy.contains(' 2023 ').click();",
+              "err": {},
+              "uuid": "6131d71a-7894-42da-9b08-e084d91ea7f4",
+              "parentUUID": "01ca32c7-1825-4ce8-a144-bad6c359f3e3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can search for Institution",
+              "fullTitle": "Institution Search filter on Pending Pre Invoices I can search for Institution",
+              "timedOut": null,
+              "duration": 1961,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.getInputControl('institution').click().clear()\n    .type('AMERICAN MILITARY UNIVERSITY').wait(1000)\n    .get('mat-option')\n    .eq(0).click();",
+              "err": {},
+              "uuid": "c895b72b-824d-49c2-b275-e93fef18174d",
+              "parentUUID": "01ca32c7-1825-4ce8-a144-bad6c359f3e3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can verify Institution is displayed in results",
+              "fullTitle": "Institution Search filter on Pending Pre Invoices I can verify Institution is displayed in results",
+              "timedOut": null,
+              "duration": 29,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.datatable-body-row')\n    .should('contain', 'AMERICAN MILITARY UNIVERSITY');",
+              "err": {},
+              "uuid": "49ee4a13-f339-410e-94f6-5e26d352babc",
+              "parentUUID": "01ca32c7-1825-4ce8-a144-bad6c359f3e3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I can verify table columns are displayed",
+              "fullTitle": "Institution Search filter on Pending Pre Invoices I can verify table columns are displayed",
+              "timedOut": null,
+              "duration": 22,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('datatable-header')\n    .should('contain', 'InvoiceNumber')\n    .and('contain', 'Institution')\n    .and('contain', 'Invoice Amount')\n    .and('contain', '# Items')\n    .and('contain', '# Actions Needed')\n    .and('contain', 'Submitted');",
+              "err": {},
+              "uuid": "453df50a-914d-4f74-a996-aad3cc11be3d",
+              "parentUUID": "01ca32c7-1825-4ce8-a144-bad6c359f3e3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4c4c71bd-7e04-4dd2-b14d-cfc54e779a7c",
+            "6131d71a-7894-42da-9b08-e084d91ea7f4",
+            "c895b72b-824d-49c2-b275-e93fef18174d",
+            "49ee4a13-f339-410e-94f6-5e26d352babc",
+            "453df50a-914d-4f74-a996-aad3cc11be3d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 15360,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

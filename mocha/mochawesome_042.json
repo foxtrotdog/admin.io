@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:39:17.582Z",
+    "end": "2024-04-15T21:39:17.862Z",
+    "duration": 280,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c1dc4938-c808-4ce3-9ff3-62f0529a7d20",
+      "title": "",
+      "fullFile": "cypress\\e2e\\funding request\\create\\apiGetFundingRequest.ts",
+      "file": "cypress\\e2e\\funding request\\create\\apiGetFundingRequest.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "75e120ab-ed65-4f41-9e80-856afbb97830",
+          "title": "Tear Down Funding Requests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GetFundingRequest",
+              "fullTitle": "Tear Down Funding Requests GetFundingRequest",
+              "timedOut": null,
+              "duration": 261,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const token = Cypress.env('token');\ncy.getFundingRequest('420').then(response => {\n    expect(response.status).equal(200);\n    cy.log(response.body);\n    const id = response.body[0].id;\n});",
+              "err": {},
+              "uuid": "558ae5e7-5c3d-4ce0-85d8-c6af30e002f6",
+              "parentUUID": "75e120ab-ed65-4f41-9e80-856afbb97830",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "558ae5e7-5c3d-4ce0-85d8-c6af30e002f6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 261,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

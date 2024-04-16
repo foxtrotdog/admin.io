@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:44:33.198Z",
+    "end": "2024-04-15T21:45:06.532Z",
+    "duration": 33334,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "af74909a-b403-458e-8cb6-cafa9db3253c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\_CadetFunding\\Cadets\\G8-PreApprover-Returns-CPR-For-More-Info.ts",
+      "file": "cypress\\e2e\\_CadetFunding\\Cadets\\G8-PreApprover-Returns-CPR-For-More-Info.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8672b7da-1678-49d6-aeba-c167ea8ed784",
+          "title": "G8 Returns CPR For More Information",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "clean up request",
+              "fullTitle": "G8 Returns CPR For More Information clean up request",
+              "timedOut": null,
+              "duration": 1136,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.impersonateToken('3323715');\ncy.getFundingRequest('3323828').then((response) => {\n    const cadetBooksItem = response.body.find(item => item.fundingRequestTypeDescription === 'Cadet Books');\n    if (cadetBooksItem) {\n        const fundingRequestVar = cadetBooksItem.id;\n        console.log(fundingRequestVar);\n        const fundingRequestVarString = JSON.stringify(fundingRequestVar);\n        // Pass fundingRequestVarString to the PowerShell script\n        cy.exec(`powershell.exe -File ./cypress/support/DeleteFundingRequest.ps1 -fundingRequestVar '${fundingRequestVarString}'`).then((result) => {\n            console.log(result.stdout);\n            console.log(fundingRequestVar);\n            console.log(fundingRequestVarString);\n        });\n    }\n    else {\n        console.log('No item found with fundingRequestTypeDescription of Cadet Books');\n    }\n    // Convert fundingRequestVar to a JSON string\n});",
+              "err": {},
+              "uuid": "a6848079-1248-43a4-831e-3b59aed2b256",
+              "parentUUID": "8672b7da-1678-49d6-aeba-c167ea8ed784",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Sets up the test",
+              "fullTitle": "G8 Returns CPR For More Information Sets up the test",
+              "timedOut": null,
+              "duration": 5672,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.impersonateToken('3323715');\ncy.getFundingRequest('3323828').then((response) => {\n    const CPR = response.body.find(item => item.fundingRequestTypeDescription === 'Cadet Tuition And Fees');\n    if (CPR) {\n        const fundingRequestVar = CPR.id;\n        console.log(fundingRequestVar);\n        const fundingRequestVarString = JSON.stringify(fundingRequestVar);\n        // Pass fundingRequestVarString to the PowerShell script\n        cy.exec(`powershell.exe -File ./cypress/support/setNeutralCPRstatus.ps1 -fundingRequestVar '${fundingRequestVarString}'`).then((result) => {\n            console.log(result.stdout);\n            console.log(fundingRequestVar);\n            console.log(fundingRequestVarString);\n        });\n    }\n    else {\n        console.log('No item found with fundingRequestTypeDescription of Cadet Books');\n    }\n});\n//set status cadre approved  \ncy.impersonateToken('2061');\ncy.PostFundingRequestStatus('3323828', '21394', '35');\ncy.wait(2000);\n// set status pms-xo approved\ncy.impersonateToken('3323715');\ncy.PostFundingRequestStatus('3323828', '21394', '46');",
+              "err": {},
+              "uuid": "53c47654-f8cf-4a9c-bdba-8cf4dad81c69",
+              "parentUUID": "8672b7da-1678-49d6-aeba-c167ea8ed784",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Log in as G8 Preapprover, find student",
+              "fullTitle": "G8 Returns CPR For More Information Log in as G8 Preapprover, find student",
+              "timedOut": null,
+              "duration": 11378,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/account/impersonate');\ncy.wait(2000);\ncy.login('Bilal', 'G8 Pre-Approver');\ncy.wait(2000);\ncy.visit('/student/view/3323828');",
+              "err": {},
+              "uuid": "08fdd823-e6f9-492c-9e17-ff69403ad048",
+              "parentUUID": "8672b7da-1678-49d6-aeba-c167ea8ed784",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Approves book funding request",
+              "fullTitle": "G8 Returns CPR For More Information Approves book funding request",
+              "timedOut": null,
+              "duration": 7438,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(' Funding Requests ').click().wait(2000);\ncy.contains('button', 'View Details').eq(0).click().wait(1000);\ncy.contains('button', ' Approve ').click().wait(2000);\ncy.get('[formcontrolname=\"remarks\"]').click().type(messageKey + 'Approved Message');\ncy.contains('button', 'Change Status').click().wait(1000);",
+              "err": {},
+              "uuid": "4e545caa-048b-479a-b273-3b493e18f014",
+              "parentUUID": "8672b7da-1678-49d6-aeba-c167ea8ed784",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Opens T&F funding request, selects request for more info",
+              "fullTitle": "G8 Returns CPR For More Information Opens T&F funding request, selects request for more info",
+              "timedOut": null,
+              "duration": 7215,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(' Funding Requests ').click().wait(2000);\ncy.get('.mat-mdc-card > .mat-mdc-card-actions').eq(1).within(() => {\n    cy.contains('button', 'View Details').click().wait(1000);\n});\ncy.contains('button', ' Req Additional Info ').click().wait(2000);\ncy.get('[formcontrolname=\"remarks\"]').click().type(messageKey + 'Approved Message');\ncy.contains('button', 'Change Status').click().wait(1000);\ncy.contains(' Request For Additional Info ');",
+              "err": {},
+              "uuid": "a8dc9cf8-5987-4663-b194-652c8d92cc76",
+              "parentUUID": "8672b7da-1678-49d6-aeba-c167ea8ed784",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "logs out",
+              "fullTitle": "G8 Returns CPR For More Information logs out",
+              "timedOut": null,
+              "duration": 387,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Bilal G8 Pre-Approver').click();\ncy.contains('Logout').click();",
+              "err": {},
+              "uuid": "a170e5a9-0b86-4d9a-82f9-f0499fd45170",
+              "parentUUID": "8672b7da-1678-49d6-aeba-c167ea8ed784",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a6848079-1248-43a4-831e-3b59aed2b256",
+            "53c47654-f8cf-4a9c-bdba-8cf4dad81c69",
+            "08fdd823-e6f9-492c-9e17-ff69403ad048",
+            "4e545caa-048b-479a-b273-3b493e18f014",
+            "a8dc9cf8-5987-4663-b194-652c8d92cc76",
+            "a170e5a9-0b86-4d9a-82f9-f0499fd45170"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 33226,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:29:16.378Z",
+    "end": "2024-04-15T21:30:10.629Z",
+    "duration": 54251,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1588b23e-b6c9-4b32-b63b-67dbe84bb18e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\_TAFunding\\Invoice-TA-Funding-Request.ts",
+      "file": "cypress\\e2e\\_TAFunding\\Invoice-TA-Funding-Request.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8f447f22-474a-415b-a219-c63bb91fef48",
+          "title": "Invoice TA Funding Request",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Log in to accounting user",
+              "fullTitle": "Invoice TA Funding Request Log in to accounting user",
+              "timedOut": null,
+              "duration": 7451,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.defaultLogin();\ncy.wait(3000);",
+              "err": {},
+              "uuid": "088184ae-04ba-4019-a05f-89416ec61760",
+              "parentUUID": "8f447f22-474a-415b-a219-c63bb91fef48",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create Invoice",
+              "fullTitle": "Invoice TA Funding Request Create Invoice",
+              "timedOut": null,
+              "duration": 11466,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.VisitMenuPage('Accounting', 'Invoicing');\ncy.wait(500);\ncy.contains('button', 'Create Invoice').click().wait(300);\nconst nowDate = moment__WEBPACK_IMPORTED_MODULE_0__().add(2, 'days').format(\"M/DD/YYYY\");\ncy.get('[formcontrolname=invoiceDate]').click().type(nowDate.toString());\ncy.get('mat-select').click().wait(1500);\ncy.contains(' Institution Invoice ').click().wait(500);\ncy.get('[formcontrolname=invoiceNumber]').click().type(nowDate.toString() + ' Cypress TA Test');\ncy.get('[formcontrolname=institution]').click().type('AMU').wait(200);\ncy.contains(' AMERICAN MILITARY UNIVERSITY (AMU) ').click().wait(1500);\ncy.get('[formcontrolname=payCenterId]').click().wait(500);\ncy.contains(' American Public University System ').click().wait(1000);\ncy.contains('button', 'Create').click().wait(1500);",
+              "err": {},
+              "uuid": "ef940e7d-1d83-41d1-b8f1-fb82d9228582",
+              "parentUUID": "8f447f22-474a-415b-a219-c63bb91fef48",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Adds Enrollments",
+              "fullTitle": "Invoice TA Funding Request Adds Enrollments",
+              "timedOut": null,
+              "duration": 11164,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(500);\ncy.contains('button', ' Add Enrollments ').click().wait(500);\ncy.get('[formcontrolname=fundingRequestTypeId]').click().wait(300);\ncy.contains(' Active TA ').click().wait(500);\ncy.get('[id=\"mat-radio-3\"]').contains('Fiscal Year ').click().wait(2500);\ncy.get('app-fiscal-year').click();\ncy.contains(' 2023 ').click().wait(3500);\ncy.get('mat-checkbox').first().click().wait(1000);\ncy.contains('button', ' Certify Selected Enrollments ').click().wait(1500);",
+              "err": {},
+              "uuid": "bb5e816a-db0f-4f6b-90fd-e45d64aadc02",
+              "parentUUID": "8f447f22-474a-415b-a219-c63bb91fef48",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Certify Invoice, adds Invoice Payment",
+              "fullTitle": "Invoice TA Funding Request Certify Invoice, adds Invoice Payment",
+              "timedOut": null,
+              "duration": 8295,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('button', 'Certify').click();\ncy.contains('button', 'Yes').click();\ncy.contains('button', ' Add Payment ').click();\ncy.getMatSelectControl('account').click();\ncy.contains(' School Invoice Account ').click().wait(1500);\ncy.getMatSelectControl('accountType').click().wait(2500);\ncy.get('mat-option').contains(' GPC ').click();\nconst nowDate = moment__WEBPACK_IMPORTED_MODULE_0__().add(2, 'days').format(\"M/DD/YYYY\");\ncy.contains('Payment Date').click().type(nowDate.toString());\ncy.contains('button', 'Add Payment').click().wait(1500);\ncy.reload();",
+              "err": {},
+              "uuid": "1ac6afdc-720e-48f5-8a57-80f7f977c4cf",
+              "parentUUID": "8f447f22-474a-415b-a219-c63bb91fef48",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Find Invoice",
+              "fullTitle": "Invoice TA Funding Request Find Invoice",
+              "timedOut": null,
+              "duration": 11713,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/accounting/invoicing');\ncy.wait(1000);\ncy.get('app-fiscal-year').click();\ncy.contains(' 2023 ').click().wait(3500);\ncy.get('[formcontrolname=institution]').click().type('AMU').wait(200);\ncy.contains(' AMERICAN MILITARY UNIVERSITY (AMU) ').click().wait(500);\nconst nowDate = moment__WEBPACK_IMPORTED_MODULE_0__().add(2, 'days').format(\"M/DD/YYYY\");\ncy.get('[formcontrolname=invoiceNumber]').click().type(nowDate.toString());\ncy.contains('button', 'Search').click().wait(1000);\ncy.get('.datatable-body-cell-label').eq(1).click().wait(3000);",
+              "err": {},
+              "uuid": "fc86bee7-9d31-4de8-8233-8ebb7acc346c",
+              "parentUUID": "8f447f22-474a-415b-a219-c63bb91fef48",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deletes Invoice",
+              "fullTitle": "Invoice TA Funding Request Deletes Invoice",
+              "timedOut": null,
+              "duration": 4004,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.delete-button').click();\ncy.contains('button', 'Yes').click();\ncy.get('[type=\"checkbox\"]').eq(0).check({ force: true }).wait(3000);\ncy.contains('button', 'Decertify').click();\ncy.contains('button', 'Yes').click();\ncy.contains('button', ' Decertify Selected Enrollments ').click();\ncy.contains('Delete').click();\ncy.contains('button', 'Yes').click();",
+              "err": {},
+              "uuid": "b1524da1-eff3-4c80-a677-d19de4cc10a1",
+              "parentUUID": "8f447f22-474a-415b-a219-c63bb91fef48",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "088184ae-04ba-4019-a05f-89416ec61760",
+            "ef940e7d-1d83-41d1-b8f1-fb82d9228582",
+            "bb5e816a-db0f-4f6b-90fd-e45d64aadc02",
+            "1ac6afdc-720e-48f5-8a57-80f7f977c4cf",
+            "fc86bee7-9d31-4de8-8233-8ebb7acc346c",
+            "b1524da1-eff3-4c80-a677-d19de4cc10a1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 54093,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

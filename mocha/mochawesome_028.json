@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:31:59.621Z",
+    "end": "2024-04-15T21:32:41.929Z",
+    "duration": 42308,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "683d30f8-274e-4e1d-98ad-5bcb096cccdc",
+      "title": "",
+      "fullFile": "cypress\\e2e\\_TAFunding\\Special-Programs.ts",
+      "file": "cypress\\e2e\\_TAFunding\\Special-Programs.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "53b6c3e1-db49-4e73-8c9a-d6bd33650234",
+          "title": "Create Special Programs Goal",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logs in and selects student",
+              "fullTitle": "Create Special Programs Goal Logs in and selects student",
+              "timedOut": null,
+              "duration": 12455,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.defaultLogin();\ncy.wait(2000);\ncy.VisitMenuPage('Student', 'Search');\ncy.SearchStudent('Cypress', 'SpecialPrograms');",
+              "err": {},
+              "uuid": "4d78f71f-2870-4b30-b5c8-593580d622db",
+              "parentUUID": "53b6c3e1-db49-4e73-8c9a-d6bd33650234",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "deletes previous Funding item",
+              "fullTitle": "Create Special Programs Goal deletes previous Funding item",
+              "timedOut": null,
+              "duration": 6841,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//visit education goals page and delete any existing goals\ncy.wait(1500);\ncy.contains(' Education Goals ').click().wait(2500);\ncy.get('app-goals').then((body) => {\n    if (body.find('mat-card').length) {\n        cy.contains(' View Details').click().wait(2000);\n        cy.contains('button', 'Delete').click();\n        cy.contains('Yes').click().wait(300);\n    }\n});",
+              "err": {},
+              "uuid": "ccf741ec-8b1f-4dca-b4ba-6d02dafa9424",
+              "parentUUID": "53b6c3e1-db49-4e73-8c9a-d6bd33650234",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Creates Special Progarms EdGoal ",
+              "fullTitle": "Create Special Programs Goal Creates Special Progarms EdGoal ",
+              "timedOut": null,
+              "duration": 22909,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/student/education-goals/goals');\ncy.wait(2500);\ncy.contains('button', ' CREATE NEW GOAL ').click().wait(2000);\ncy.contains('Special Programs ', { timeout: 10000, matchCase: false }).click().wait(2000);\ncy.getInputControl('institution').type(' AMERICAN MILITARY UNIVERSITY (AMU) ').wait(2000).type('{downarrow}{enter}');\ncy.getInputControl('institutionStudentId').type('666312').wait(1000);\ncy.contains('button', 'Next').click().wait(2000);\ncy.getMatSelectControl('degreeProgram').click().type('{downarrow}{downarrow}{enter}').wait(2000);\ncy.getButton('degreeprogram').click();\n//below is for the supporting doc upload step\nconst fixtureFile = 'EdGoalSupportingDoc.docx';\ncy.get('[type=\"file\"]').attachFile(fixtureFile);\ncy.contains('mat-checkbox', 'Evaluated');\ncy.getButton('degreefile').click().wait(1000);\ncy.getInputControl('requiredCredits').type('10');\ncy.getInputControl('previouslyCompletedCredits').type('1');\ncy.getButton('goalareasubmitgoal').click().wait(2000);\ncy.contains('button', 'Yes').click().wait(2000);\ncy.get('mat-card-subtitle').first().should('contain', 'Special Programs').and('contain', 'Approved');",
+              "err": {},
+              "uuid": "0de711a8-fd4e-4672-a4c5-e6660e475c4f",
+              "parentUUID": "53b6c3e1-db49-4e73-8c9a-d6bd33650234",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4d78f71f-2870-4b30-b5c8-593580d622db",
+            "ccf741ec-8b1f-4dca-b4ba-6d02dafa9424",
+            "0de711a8-fd4e-4672-a4c5-e6660e475c4f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 42205,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

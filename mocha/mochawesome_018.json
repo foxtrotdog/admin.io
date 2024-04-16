@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:20:27.574Z",
+    "end": "2024-04-15T21:20:47.223Z",
+    "duration": 19649,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fda10784-0e8f-4afb-8e97-2fead3c51e45",
+      "title": "",
+      "fullFile": "cypress\\e2e\\accounting\\Deceased\\SpecialActionQueue.ts",
+      "file": "cypress\\e2e\\accounting\\Deceased\\SpecialActionQueue.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0b4fcd48-e4ee-4ce0-9a01-b295b258ecee",
+          "title": "Admin with Deceased Student View Permission Has Access to Special Action Queue",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logs in as admin, verify deceased student view permission in user profile page",
+              "fullTitle": "Admin with Deceased Student View Permission Has Access to Special Action Queue Logs in as admin, verify deceased student view permission in user profile page",
+              "timedOut": null,
+              "duration": 8853,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('Cypress', 'SysOp');\ncy.wait(2000);\ncy.contains('Cypress SysOp').click();\ncy.contains('My Profile').click();\ncy.get('#cdk-accordion-child-2 > .mat-expansion-panel-body > :nth-child(18)')\n    .find('.mdc-checkbox__native-control.mdc-checkbox--selected'); // veryify that the deceased student view permission is selected",
+              "err": {},
+              "uuid": "90051b47-b580-4816-899b-751a3fa1a60c",
+              "parentUUID": "0b4fcd48-e4ee-4ce0-9a01-b295b258ecee",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigates back to the Dashboard, checks for Special Actions tile",
+              "fullTitle": "Admin with Deceased Student View Permission Has Access to Special Action Queue Navigates back to the Dashboard, checks for Special Actions tile",
+              "timedOut": null,
+              "duration": 2658,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Dashboard').click();\ncy.contains(' Special Actions ').click();\ncy.wait(2000);",
+              "err": {},
+              "uuid": "1536ad4e-e36b-4209-acba-5d473e767578",
+              "parentUUID": "0b4fcd48-e4ee-4ce0-9a01-b295b258ecee",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Updates the filter to Pending Request, selects a recoupment request and verifies special action message",
+              "fullTitle": "Admin with Deceased Student View Permission Has Access to Special Action Queue Updates the filter to Pending Request, selects a recoupment request and verifies special action message",
+              "timedOut": null,
+              "duration": 743,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#recoupmentStatus').click();\ncy.contains(' Pending Request ').click();\ncy.contains('button', 'Search ').click();\ncy.get(':nth-child(4) > .datatable-body-cell-label > .d-flex').contains('Pending Request ').click();\ncy.contains(' Student has a pending or completed special action. ').should('be.visible');",
+              "err": {},
+              "uuid": "f3445fb3-8b80-4bda-b285-a9f0f8ca0913",
+              "parentUUID": "0b4fcd48-e4ee-4ce0-9a01-b295b258ecee",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Goes back to the queue, checks Pending Suspense, selects a recoupment request and verifies special action message",
+              "fullTitle": "Admin with Deceased Student View Permission Has Access to Special Action Queue Goes back to the queue, checks Pending Suspense, selects a recoupment request and verifies special action message",
+              "timedOut": null,
+              "duration": 7236,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Dashboard').click();\ncy.wait(2000);\ncy.contains(' Special Actions ').click();\ncy.wait(2000);\ncy.get('#recoupmentStatus').click().wait(2000);\ncy.contains('mat-option', ' Pending Suspense ').click();\ncy.contains('button', 'Search ').click();\ncy.get(':nth-child(4) > .datatable-body-cell-label > .d-flex').contains('Pending Suspense ').click();\ncy.contains(' Student has a pending or completed special action. ').should('be.visible');",
+              "err": {},
+              "uuid": "2faf00d2-ebfc-4e96-8a23-1e43d55d9c0e",
+              "parentUUID": "0b4fcd48-e4ee-4ce0-9a01-b295b258ecee",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "90051b47-b580-4816-899b-751a3fa1a60c",
+            "1536ad4e-e36b-4209-acba-5d473e767578",
+            "f3445fb3-8b80-4bda-b285-a9f0f8ca0913",
+            "2faf00d2-ebfc-4e96-8a23-1e43d55d9c0e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19490,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

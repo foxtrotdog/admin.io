@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:47:47.240Z",
+    "end": "2024-04-15T21:48:12.423Z",
+    "duration": 25183,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "edcca4ec-8c6a-48b2-a6a0-32314bd1708c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\_CadetFunding\\Cadets\\PMS-XO-Request-For-More-Info.ts",
+      "file": "cypress\\e2e\\_CadetFunding\\Cadets\\PMS-XO-Request-For-More-Info.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e4e252b3-9b5a-4405-affe-6f35fd9e51e6",
+          "title": "PMS/XO Request for more information test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "clean up request",
+              "fullTitle": "PMS/XO Request for more information test clean up request",
+              "timedOut": null,
+              "duration": 166,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.impersonateToken('3323715');\ncy.getFundingRequest('3323828').then((response) => {\n    const cadetBooksItem = response.body.find(item => item.fundingRequestTypeDescription === 'Cadet Books');\n    if (cadetBooksItem) {\n        const fundingRequestVar = cadetBooksItem.id;\n        console.log(fundingRequestVar);\n        const fundingRequestVarString = JSON.stringify(fundingRequestVar);\n        // Pass fundingRequestVarString to the PowerShell script\n        cy.exec(`powershell.exe -File ./cypress/support/DeleteFundingRequest.ps1 -fundingRequestVar '${fundingRequestVarString}'`).then((result) => {\n            console.log(result.stdout);\n            console.log(fundingRequestVar);\n            console.log(fundingRequestVarString);\n        });\n    }\n    else {\n        console.log('No item found with fundingRequestTypeDescription of Cadet Books');\n    }\n    // Convert fundingRequestVar to a JSON string\n});",
+              "err": {},
+              "uuid": "9cbf8ee7-c6b7-4be4-bd78-3836931b2c75",
+              "parentUUID": "e4e252b3-9b5a-4405-affe-6f35fd9e51e6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Sets up the test",
+              "fullTitle": "PMS/XO Request for more information test Sets up the test",
+              "timedOut": null,
+              "duration": 3217,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.impersonateToken('3323715');\ncy.getFundingRequest('3323828').then((response) => {\n    const CPR = response.body.find(item => item.fundingRequestTypeDescription === 'Cadet Tuition And Fees');\n    if (CPR) {\n        const fundingRequestVar = CPR.id;\n        console.log(fundingRequestVar);\n        const fundingRequestVarString = JSON.stringify(fundingRequestVar);\n        // Pass fundingRequestVarString to the PowerShell script\n        cy.exec(`powershell.exe -File ./cypress/support/setNeutralCPRstatus.ps1 -fundingRequestVar '${fundingRequestVarString}'`).then((result) => {\n            console.log(result.stdout);\n            console.log(fundingRequestVar);\n            console.log(fundingRequestVarString);\n        });\n    }\n    else {\n        console.log('No item found with fundingRequestTypeDescription of Cadet Books');\n    }\n});\ncy.impersonateToken('3323715');\ncy.PostFundingRequestStatus('3323828', '21394', '35');",
+              "err": {},
+              "uuid": "2daa0050-0d42-4438-ac10-ff7ceeb986d5",
+              "parentUUID": "e4e252b3-9b5a-4405-affe-6f35fd9e51e6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Log in as PMSXO, find student",
+              "fullTitle": "PMS/XO Request for more information test Log in as PMSXO, find student",
+              "timedOut": null,
+              "duration": 9808,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/account/impersonate');\ncy.wait(2000);\ncy.login('Bilal', 'PMS-XO');\ncy.wait(2000);\ncy.visit('/student/view/3323828');",
+              "err": {},
+              "uuid": "7722a715-4e1b-42d0-8a28-822d95aa4e35",
+              "parentUUID": "e4e252b3-9b5a-4405-affe-6f35fd9e51e6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Selects funding request, selects Request more information",
+              "fullTitle": "PMS/XO Request for more information test Selects funding request, selects Request more information",
+              "timedOut": null,
+              "duration": 11224,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(' Funding Requests ').click().wait(2000);\ncy.get('.mat-accordion').eq(0).within(() => {\n    cy.contains('ID #21394-BOSTON UNIVERSITY');\n    cy.contains('Spring Term');\n    cy.contains('button', 'View Details').click().wait(1000);\n});\ncy.contains('attachment').click().wait(1000);\ncy.contains('DummyDoc.pdf').click().wait(2000);\ncy.contains('button', ' Req Additional Info ').click().wait(2000);\ncy.get('[formcontrolname=\"remarks\"]').click().type(messageKey + 'Cypress Message, fix this!!');\ncy.contains('button', 'Change Status').click().wait(1000);\ncy.contains(' Request For Additional Info ');\ncy.contains('Spring Term');\nCypress.on('uncaught:exception', (err) => {\n    if (/ResizeObserver loop limit exceeded/.test(err.message)) {\n        // returning false here prevents Cypress from failing test\n        // this was throwing an error when clicking the attachment and the screen switching back to the funding request.\n        return false;\n    }\n});",
+              "err": {},
+              "uuid": "bf3a8e17-ed51-4914-9074-ad403c240717",
+              "parentUUID": "e4e252b3-9b5a-4405-affe-6f35fd9e51e6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verifies message was sent from Admin Side",
+              "fullTitle": "PMS/XO Request for more information test Verifies message was sent from Admin Side",
+              "timedOut": null,
+              "duration": 648,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(' Student Messages ').click();\ncy.contains('datatable-body-row', ' Additional Information Requested Regarding your Army Cadet Payment Request ').click();\ncy.contains(messageKey + 'Cypress Message, fix this!!');",
+              "err": {},
+              "uuid": "0586ae45-04c7-423d-86de-59bd51978def",
+              "parentUUID": "e4e252b3-9b5a-4405-affe-6f35fd9e51e6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9cbf8ee7-c6b7-4be4-bd78-3836931b2c75",
+            "2daa0050-0d42-4438-ac10-ff7ceeb986d5",
+            "7722a715-4e1b-42d0-8a28-822d95aa4e35",
+            "bf3a8e17-ed51-4914-9074-ad403c240717",
+            "0586ae45-04c7-423d-86de-59bd51978def"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 25063,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

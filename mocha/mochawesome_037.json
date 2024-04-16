@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:37:31.322Z",
+    "end": "2024-04-15T21:37:31.877Z",
+    "duration": 555,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ee3220ca-aabf-4ac6-972d-dce9cd888531",
+      "title": "",
+      "fullFile": "cypress\\e2e\\accounting\\FinancialManagementTracker\\FinancialManagementTracker-api.ts",
+      "file": "cypress\\e2e\\accounting\\FinancialManagementTracker\\FinancialManagementTracker-api.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "43eb64d2-ac90-4af0-8dcb-7196c00cc8ae",
+          "title": "Financial Management Tracker (API Testing)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "post financial management tracker",
+              "fullTitle": "Financial Management Tracker (API Testing) post financial management tracker",
+              "timedOut": null,
+              "duration": 323,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const token = Cypress.env('token');\nconst authorization = `Bearer ${token}`;\ncy.request({\n    method: 'POST',\n    url: 'https://dev.bamtech.net/api/api/accounting/financialmanagementtracker',\n    headers: {\n        authorization: authorization,\n        authority: 'dev.bamtech.net',\n        accept: 'application/json, text/plain, */*',\n        referer: 'https://dev.bamtech.net/admin/accounting/financial-management-tracker'\n    },\n    body: {\n        fundingRequestTypeId: 12,\n        fiscalYear: 2023,\n        programmedFunds: 100000,\n        thresholdAmmount: 10000,\n        civilianTrainingBudgetGroupId: 1,\n        civilianCareerFieldGroupId: 23\n    }\n}).then(response => {\n    expect(response.status).equal(200);\n});",
+              "err": {},
+              "uuid": "aa3ac357-c8ae-4aec-b039-7922a3239037",
+              "parentUUID": "43eb64d2-ac90-4af0-8dcb-7196c00cc8ae",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "get financial management tracker",
+              "fullTitle": "Financial Management Tracker (API Testing) get financial management tracker",
+              "timedOut": null,
+              "duration": 217,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const token = Cypress.env('token');\nconst authorization = `Bearer ${token}`;\ncy.request({\n    method: 'GET',\n    url: 'https://dev.bamtech.net/api/api/accounting/financialmanagementtracker?fiscalYear=2023&FundingRequestTypeId=12&CivilianTrainingBudgetGroupId=1&CivilianCareerFieldGroupId=null',\n    headers: {\n        authorization: authorization,\n        accept: 'application/json, text/plain, */*',\n        authority: 'dev.bamtech.net',\n        referer: 'https://dev.bamtech.net/admin/accounting/financial-management-tracker'\n    }\n}).then(response => {\n    console.log(response);\n}).its('status').should('eq', 200);",
+              "err": {},
+              "uuid": "9f619480-f1da-4f32-80ab-90a4bfa2b5c4",
+              "parentUUID": "43eb64d2-ac90-4af0-8dcb-7196c00cc8ae",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aa3ac357-c8ae-4aec-b039-7922a3239037",
+            "9f619480-f1da-4f32-80ab-90a4bfa2b5c4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 540,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

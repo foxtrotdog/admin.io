@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:40:49.909Z",
+    "end": "2024-04-15T21:40:59.102Z",
+    "duration": 9193,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "052adfba-0fcd-461a-8c0d-3da00b0cc7ea",
+      "title": "",
+      "fullFile": "cypress\\e2e\\reports\\general reports\\DFAS-DS01-Recoupment.ts",
+      "file": "cypress\\e2e\\reports\\general reports\\DFAS-DS01-Recoupment.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e336730f-39e8-480a-bd10-4a7eea90275f",
+          "title": "DFAS Report Runner",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to and run report",
+              "fullTitle": "DFAS Report Runner Navigate to and run report",
+              "timedOut": null,
+              "duration": 9139,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.defaultLogin();\ncy.VisitMenuPage('Reports', 'General Reports');\ncy.contains('attach_money').click()\n    .wait(1000);\ncy.contains(' DFAS DS01 Recoupment Export ').click().wait(500);\ncy.get('mat-select[formControlName=fundingRequestType]').click();\ncy.contains(' Active TA ').click();\ncy.getInputControl('start').type('01/01/2018');\ncy.getInputControl('end').type('10/10/2022');\ncy.contains('Run Report ').click()\n    .wait(1000);",
+              "err": {},
+              "uuid": "5ad7b2d0-6d6f-416c-adaf-f632fe69c9eb",
+              "parentUUID": "e336730f-39e8-480a-bd10-4a7eea90275f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5ad7b2d0-6d6f-416c-adaf-f632fe69c9eb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9139,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

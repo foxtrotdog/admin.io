@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:43:22.878Z",
+    "end": "2024-04-15T21:43:42.508Z",
+    "duration": 19630,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "09cc9f95-c7ca-4d8e-93cb-f94d19f54e6b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\_CadetFunding\\Cadets\\Cadre-Disapproves-CPR.ts",
+      "file": "cypress\\e2e\\_CadetFunding\\Cadets\\Cadre-Disapproves-CPR.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6ef4f5e2-ca12-4584-9eee-cd35d9286f4c",
+          "title": "Cadre Disapproves CPR",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Sets up the test",
+              "fullTitle": "Cadre Disapproves CPR Sets up the test",
+              "timedOut": null,
+              "duration": 1126,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.impersonateToken('3323715');\ncy.CreateCPR();\ncy.getFundingRequest('3327272').then((response) => {\n    cy.log(response.body);\n    const goalId = response.body[0].id;\n    cy.PostFundingRequestStatus('3327272', goalId, '34');\n});",
+              "err": {},
+              "uuid": "8740256e-3bcf-4090-bbe0-aee7d9a3381c",
+              "parentUUID": "6ef4f5e2-ca12-4584-9eee-cd35d9286f4c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Given I log in as a Cadre",
+              "fullTitle": "Cadre Disapproves CPR Given I log in as a Cadre",
+              "timedOut": null,
+              "duration": 8304,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/account/impersonate');\ncy.login('Bilal', 'Cadre 2BD');\ncy.visit('/student/view/3327272');",
+              "err": {},
+              "uuid": "67de45a4-0b60-4e83-b100-77bcc2daa46f",
+              "parentUUID": "6ef4f5e2-ca12-4584-9eee-cd35d9286f4c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "When I open a CPR and verify I have revied the documents",
+              "fullTitle": "Cadre Disapproves CPR When I open a CPR and verify I have revied the documents",
+              "timedOut": null,
+              "duration": 7156,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(' Funding Requests ').click().wait(2000);\ncy.contains('button', 'View Details').click().wait(1000);\nCypress.on('uncaught:exception', (err) => {\n    if (/ResizeObserver loop limit exceeded/.test(err.message)) {\n        // returning false here prevents Cypress from failing test\n        // this was throwing an error when clicking the attachment and the screen switching back to the funding request.\n        return false;\n    }\n});\ncy.contains('attachment').click().wait(1000);\ncy.contains('DummyDoc.pdf').click().wait(2000);",
+              "err": {},
+              "uuid": "f9a290e9-7de3-42ea-8675-4b78be77ed03",
+              "parentUUID": "6ef4f5e2-ca12-4584-9eee-cd35d9286f4c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Then I can select Disapprove button",
+              "fullTitle": "Cadre Disapproves CPR Then I can select Disapprove button",
+              "timedOut": null,
+              "duration": 2964,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('button', ' Disapprove ').click().wait(1000);\ncy.get('[formcontrolname=\"remarks\"]').click().type('Cypress Message, fix this!!');\ncy.contains('button', 'Change Status').click().wait(1000);\ncy.contains('Cadet Payment Request Status Changed!');",
+              "err": {},
+              "uuid": "3d4f8fba-e713-46fd-af70-46bb0ba392e3",
+              "parentUUID": "6ef4f5e2-ca12-4584-9eee-cd35d9286f4c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8740256e-3bcf-4090-bbe0-aee7d9a3381c",
+            "67de45a4-0b60-4e83-b100-77bcc2daa46f",
+            "f9a290e9-7de3-42ea-8675-4b78be77ed03",
+            "3d4f8fba-e713-46fd-af70-46bb0ba392e3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19550,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

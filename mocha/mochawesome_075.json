@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-15T21:56:38.820Z",
+    "end": "2024-04-15T21:56:46.972Z",
+    "duration": 8152,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6e40c3bb-1066-435b-909a-3940082ad62b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\_CIVFunding\\CivilianFunding\\TrainingOfficers\\TrainingOfficerDisapproval.ts",
+      "file": "cypress\\e2e\\_CIVFunding\\CivilianFunding\\TrainingOfficers\\TrainingOfficerDisapproval.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a6081b13-f5ce-4e6f-964a-04a4119d894b",
+          "title": "Training Officer disapproves individual SF182",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login as a Training Officer-P",
+              "fullTitle": "Training Officer disapproves individual SF182 Login as a Training Officer-P",
+              "timedOut": null,
+              "duration": 4591,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('Cypress', 'Training Officer-P');",
+              "err": {},
+              "uuid": "2429a238-e5b4-47c0-94cb-6809ecc63f0d",
+              "parentUUID": "a6081b13-f5ce-4e6f-964a-04a4119d894b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Select Civlian Training Funding Request Tile From Dashboard, selects Cypress Civs SF182",
+              "fullTitle": "Training Officer disapproves individual SF182 Select Civlian Training Funding Request Tile From Dashboard, selects Cypress Civs SF182",
+              "timedOut": null,
+              "duration": 819,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.pending-work > :nth-child(1)').contains('Civilian Training Funding Requests').click();\ncy.contains('datatable-body-row', 'Civ, Cypress').within(() => {\n    // Assert that the row contains a cell with the name 'Civ, Cypress'\n    cy.get('datatable-body-cell').contains('Civ, Cypress').should('exist');\n    cy.get('datatable-body-cell').find('button').should('exist');\n    cy.get('datatable-body-cell').find('button').click();\n});",
+              "err": {},
+              "uuid": "16d52467-db09-49b5-b296-8d2f24393b85",
+              "parentUUID": "a6081b13-f5ce-4e6f-964a-04a4119d894b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Training Officer disapproves individual SF182",
+              "fullTitle": "Training Officer disapproves individual SF182 Training Officer disapproves individual SF182",
+              "timedOut": null,
+              "duration": 2523,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('button').contains(' Disapprove ').click();\ncy.get('[formcontrolname=disapprovalReason]').click();\ncy.get('mat-option').contains(' SF 182 not submitted IAW ACCMA established time line (at least 30 days prior to class start date) ');\ncy.get('mat-option').contains(' Insufficient Funding in Career Field ');\ncy.get('mat-option').contains(' Training request not coordinated in advance with Career Field for Funding ');\ncy.get('mat-option').contains(' Duplicate Course Request ');\ncy.get('mat-option').contains(' Other (Remarks required) ').click();\ncy.get('[formcontrolname=remarks]').click().type('Disapproved by automated test');\ncy.get('button').contains('Change Status').click();\ncy.contains(' Supervisor Concurs / Training Officer Disapproved ').should('exist');",
+              "err": {},
+              "uuid": "5f340a6e-caa4-4e82-8c53-c7000bda066e",
+              "parentUUID": "a6081b13-f5ce-4e6f-964a-04a4119d894b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2429a238-e5b4-47c0-94cb-6809ecc63f0d",
+            "16d52467-db09-49b5-b296-8d2f24393b85",
+            "5f340a6e-caa4-4e82-8c53-c7000bda066e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7933,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
